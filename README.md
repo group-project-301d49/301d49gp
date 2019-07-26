@@ -13,6 +13,7 @@ Nat'l Parks API
 Final Project Repo Initiation (*to be updated) 
 
 ## Project title
+S'mores - Camping Explorer 
 
 
 ## Motivation
