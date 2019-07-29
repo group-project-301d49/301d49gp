@@ -42,6 +42,12 @@ app.listen(PORT, () => console.log('Listening on port:', PORT));
 // #region ---------- ROUTES ----------
 
 // API Routes
+app.get('/', (request, response) => {
+  response.render('layout/homepage');
+});
+// app.get('/', (request, response) => {
+//   response.render('layout/footer');
+// });
 app.get('/test', testFunction);
 app.get('/search', getSearch);
 
@@ -131,14 +137,8 @@ function CampgroundSummary(c) {
 // #region ---------- Benjamins test region ----------
 
 function testFunction(req, res) {
-  let CAMPGROUND_API = '6h5g9gppzyn2rmffsvvwsj8f';
-  let URL = `https://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=37.84035&landmarkLong=-122.4888889&xml=true&api_key=${CAMPGROUND_API}`;
-  console.log(URL);
+  res.render('map-test');
 
-  superagent.get(URL)
-    .then(result => console.log('THIS IS RESULT', result))
-    .then(result => res.send('happy'))
-    .catch(err => console.log('OUR ERROR: ', err));
 }
 
 // #endregion Benjamins test region
