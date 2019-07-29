@@ -19,9 +19,9 @@ app.use(express.static('./public'));
 
 // Database Setup: if you've got a good DATABASE_URL
 if (process.env.DATABASE_URL) {
-    const client = new pg.Client(process.env.DATABASE_URL);
-    client.connect();
-    client.on('error', err => console.error(err));
+  const client = new pg.Client(process.env.DATABASE_URL);
+  client.connect();
+  client.on('error', err => console.error(err));
 }
 
 // Set the view engine for server-side templating
@@ -31,7 +31,9 @@ app.set('view engine', 'ejs');
 app.listen(PORT, () => console.log('Listening on port:', PORT));
 
 // API Routes
-app.get('/fun', (request, response) => {
-    // test out your routes, perhaps ejs views or database stuff
-    response.render('fun');
+app.get('/', (request, response) => {
+  response.render('layout/homepage');
 });
+// app.get('/', (request, response) => {
+//   response.render('layout/footer');
+// });
