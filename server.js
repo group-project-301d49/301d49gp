@@ -42,6 +42,12 @@ app.listen(PORT, () => console.log('Listening on port:', PORT));
 // #region ---------- ROUTES ----------
 
 // API Routes
+app.get('/', (request, response) => {
+  response.render('layout/homepage');
+});
+// app.get('/', (request, response) => {
+//   response.render('layout/footer');
+// });
 app.get('/test', testFunction);
 app.get('/search', getSearch);
 
