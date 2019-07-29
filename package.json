@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/group-project-301d49/301d49gp#readme",
   "dependencies": {
-    "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "ejs": "^2.6.2",
     "eslint": "^6.1.0",

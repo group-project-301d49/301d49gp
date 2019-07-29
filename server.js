@@ -50,10 +50,17 @@ app.get('/search', getSearch);
 // #region ---------- ROUTE HANDLERS ----------
 
 
-async function getSearch() {
+async function getSearch(req, res) {
+  // TODO: get query from req
+  let tempQuery = 'seattle';
+
+  // get latitude and longitude for queried location
+  const latLong = await getLatLong(tempQuery);
+
+
   let CAMPGROUND_API = '6h5g9gppzyn2rmffsvvwsj8f';
-  let URL = `http://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=37.84035&landmarkLong=-122.4888889&xml=true&api_key=${CAMPGROUND_API}`;
-  console.log(URL);
+  let URL = `http://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=${latLong.lat}&landmarkLong=${latLong.lng}&xml=true&api_key=${CAMPGROUND_API}`;
+
   try {
     const xmlResults = await superagent.get(URL);
 
@@ -63,19 +70,40 @@ async function getSearch() {
     // dig into the returned JS object
     const campArr = result.elements[0].elements.slice(0, 10);
 
-
+    // construct an array of campground summaries
     const constructedCamps = campArr.map(camp => {
       return new CampgroundSummary(camp.attributes);
     })
-    console.log('APPLE', constructedCamps, 'APPLE-END');
+
+    console.log(constructedCamps);
+
+    // TODO: res.render /search.ejs with constructedCamps
 
   } catch (e) {
-    console.log('OUR ERROR: ', e);
+    console.log('getSearch() ERROR: ', e);
   }
 
 }
 
 // #endregion ROUTE HANDLERS
+
+
+// #region ---------- HELPER FUNCTIONS ----------
+
+async function getLatLong(query) {
+  try {
+    const location_URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${process.env.GEOCODE_API_KEY}`;
+    const result = await superagent.get(location_URL)
+
+    return result.body.results[0].geometry.location;
+
+  } catch (e) {
+    console.log('getLatLong(query) ERROR: ', e);
+  }
+}
+
+// #endregion HELPER FUNCTIONS
+
 
 // #region ---------- CONSTRUCTORS ----------
 

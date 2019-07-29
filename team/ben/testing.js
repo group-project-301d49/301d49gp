@@ -44,6 +44,7 @@ app.get('/fun', (request, response) => {
 
 
 
+// campground API
 
 async function handleSearch() {
   let CAMPGROUND_API = '6h5g9gppzyn2rmffsvvwsj8f';
@@ -69,27 +70,25 @@ async function handleSearch() {
   }
 
 }
-handleSearch();
 
-function handleSearch2() {
-  let CAMPGROUND_API = '6h5g9gppzyn2rmffsvvwsj8f';
-  let URL = `http://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=37.84035&landmarkLong=-122.4888889&xml=true&api_key=${CAMPGROUND_API}`;
-  console.log(URL);
 
-  superagent.get(URL)
-    .then(result => console.log(result))
-    .catch(err => console.log('OUR ERROR: ', err));
+// google API
+
+let query = 'seattle';
+const GEOCODE_API_KEY = 'AIzaSyBcHsgB16wscewNOYKKaEzBJA10611zOGo';
+
+async function getLocation(request, response) {
+
+  const location_URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${GEOCODE_API_KEY}`;
+  const result = await superagent.get(location_URL)
+
+  console.log('Got data from API');
+  if (!result.body.results.length) { throw 'No Data'; }
+  else {
+    console.log('POOP', result.body.results[0].geometry.location, "END-POOP")
+  }
 }
 
+getLocation();
 
 
-// superagent.get(url)
-//     .then(result => result.body.items.slice(0, 10).map(bookInfo => new Book(bookInfo, 'Enter bookshelf')))
-//     .then(bookArr => {
-//       getAllBookshelves(res)
-//         .then(shelves => {
-//           return { searchResults: bookArr, bookshelves: shelves }
-//         })
-//         .then(result => res.render('pages/searches/show', result))
-//         .catch(err => errorHandling(err, res));
-//     });
