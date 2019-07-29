@@ -1,0 +1,29 @@
+{
+  "name": "301d49gp",
+  "version": "1.0.0",
+  "description": "301 49 Cohort Group Project - Authors: Brad, Leyla, Corey, Ben, Lyndsey",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/group-project-301d49/301d49gp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/group-project-301d49/301d49gp/issues"
+  },
+  "homepage": "https://github.com/group-project-301d49/301d49gp#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.2",
+    "eslint": "^6.1.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1",
+    "pg": "^7.12.0"
+  }
+}
