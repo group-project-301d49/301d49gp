@@ -5,9 +5,10 @@ Initial Project Ideas:
 Camping Site Availabilty Mapping, with Weather Info, and limited site details, including activities (hiking, swimming, fishing, etc)
 DIRECTIONS - Stretch Goal? 
 
-Needs: 
+### Needs: 
 Location API
 Nat'l Parks API
+Weather API
 
 # FinalProject
 Final Project Repo Initiation (*to be updated) 
@@ -17,6 +18,20 @@ S'mores - Camping Explorer
 
 
 ## Motivation
+
+As a user i want to be able to enter a location (request).
+
+As a user i want to see results of my search with a list of camp sites.
+
+As a user i want to be able to see a map with pins telling me camping sites depending on my location.
+
+As a user i want to be able to see the weather for set amount of days.
+
+### strech goal :
+
+As a user i would like to be able to to click a result and get details of things/events to do at that camp site.
+
+
 
 
 
@@ -48,9 +63,4 @@ https://meyerweb.com/eric/tools/css/reset/ CSS Reset Tool
 
 ## License
 MIT © Code Fellows
-
-
-
-
-
 
