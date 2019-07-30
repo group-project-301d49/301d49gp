@@ -1,0 +1,71 @@
+/* for mobile */
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/displayed/hero_image.jpg);
+    background-color: black; 
+    height: 1000px; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    font: white; 
+    font-family: 'Amatic SC', cursive;
+  }
+
+  a:link {
+      color: white; 
+      text-decoration: none;
+  }
+
+  a:visited {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+      color: #652F08;
+      text-decoration: none;
+  }
+
+
+header {
+    /* border: yellow solid 5px; */
+    font: white; 
+    text-decoration: none;
+}
+
+a > h1 {
+    /* border: greenyellow 2px solid; */
+    background-color: black;
+    height: 85%;
+    font-size: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: right; 
+}
+
+main {
+    height: 90%;
+    width: 90%;
+    margin: auto;
+    font: white;
+    text-decoration: none;
+}
+
+footer {
+    color: white;
+    /* border: orange solid 2px; */
+}
+
+h2 {
+    /* border: yellow solid 2px; */
+    font: white;
+}
+
+h1 {
+    /* border: green solid 2px; */
+    font: white; 
+}
+
+
+
+

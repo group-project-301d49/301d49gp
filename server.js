@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 3000;
 // Utilize ExpressJS functionality to parse the body of the request
 app.use(express.urlencoded({ extended: true }));
 // Specify a directory for static resources
-app.use(express.static('./public'));
+app.use(express.static('public'));
 
 // Database Setup: if you've got a good DATABASE_URL
 if (process.env.DATABASE_URL) {
