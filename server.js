@@ -94,7 +94,7 @@ async function getSearch(req, res) {
 
     // console.log(lat, long);
     const forcastStr = `${lat[0]}d${lat[1]}n${long[0]}d${long[1]}/${parsedCityName}/`;
-    console.log(forcastStr);
+    console.log('banana', forcastStr, 'banana');
 
     res.render('search/search', { camps: constructedCamps, forcastStr: forcastStr, cityName: locationResults.cityName });
 
@@ -117,7 +117,7 @@ async function getLocationData(query) {
     // console.log(result.body.results[0].geometry.location);
     // console.log(result.body.results[0].address_components[0].long_name.replace(/\s+/g, '-').toLowerCase());
     const latLong = result.body.results[0].geometry.location;
-    const cityName = result.body.results[0].address_components[0].long_name;
+    const cityName = result.body.results[0].address_components.filter(e => e.types.includes('locality'))[0].long_name;
     return { latLong, cityName };
 
   } catch (e) {

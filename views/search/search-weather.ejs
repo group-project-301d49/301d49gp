@@ -1,23 +1,33 @@
 <!-- VAR forcastStr is injected EXAMPLE: '47d61n122d33/seattle/' -->
 <!-- VAR cityName is injected EXAMPLE: 'Los Angeles' -->
 
-<section class="search-weather">
-    <h2>this is the weather partial:: <%= forcastStr %></h2>
 
+<section class="search-weather">
+
+    <script>
+
+        function renderWeather(document, script, weatherID) {
+            if (document.getElementById(weatherID))
+                document.getElementById(weatherID).remove();
+
+            var fjs = document.getElementsByTagName(script)[0];
+            // console.log(document.getElementsByTagName(script));
+
+            // create and insert new weather script
+            let js;
+            js = document.createElement(script);
+            js.id = weatherID;
+            js.src = 'https://weatherwidget.io/js/widget.min.js';
+            fjs.parentNode.insertBefore(js, fjs);
+
+        }
+        renderWeather(document, 'script', 'weatherwidget-io-js');
+
+    </script>
+    <h2><%= forcastStr %></h2>
     <a class="weatherwidget-io" href="https://forecast7.com/en/<%= forcastStr %>" data-label_1="<%= cityName %>"
         data-label_2="WEATHER" data-font="Play" data-icons="Climacons Animated" data-theme="original"
         data-basecolor="rgba(0, 255, 140, 0)" data-textcolor="#000000" data-mooncolor="#6d6d6d"
         data-cloudfill="rgba(204, 204, 204, 0)"><%= cityName %> Weather</a>
-    <script>
-        !function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = 'https://weatherwidget.io/js/widget.min.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }
-        }
-            (document, 'script', 'weatherwidget-io-js');
-    </script>
+
 </section>
