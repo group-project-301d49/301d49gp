@@ -1,0 +1,37 @@
+/* for mobile */
+
+header {
+    border: black solid 2px;
+}
+
+main {
+    border: pink solid 2px;
+}
+
+body {
+    border: red solid 2px;
+}
+
+footer {
+    border: orange solid 2px;
+}
+
+h2 {
+    border: yellow solid 2px;
+}
+
+h1 {
+    border: green solid 2px;
+}
+
+div {
+    border: blue solid 2px;
+}
+
+p {
+    border: indigo solid 2px;
+}
+
+nav {
+    
+}
