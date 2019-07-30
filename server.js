@@ -80,7 +80,7 @@ async function getSearch(req, res) {
     })
 
     console.log(constructedCamps);
-    res.render('search-results', { camps: constructedCamps });
+    res.render('layout/search-results', { camps: constructedCamps });
 
   } catch (e) {
     console.log('getSearch() ERROR: ', e);

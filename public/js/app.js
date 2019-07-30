@@ -9,7 +9,9 @@ function init() {
       $.ajax({
         url: `/search/${e.target.value}`,
         type: 'POST',
-        success: function (result) { window.location.href = "/" }
+        success: function (result) {
+          $('main').empty().append(result)
+        }
       })
     }
   });
