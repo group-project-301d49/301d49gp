@@ -80,7 +80,7 @@ async function getSearch(req, res) {
     })
 
     console.log(constructedCamps);
-    res.render('layout/search-results', { camps: constructedCamps });
+    res.render('search/search', { camps: constructedCamps });
 
   } catch (e) {
     console.log('getSearch() ERROR: ', e);
@@ -111,10 +111,10 @@ async function getLatLong(query) {
 // #region ---------- CONSTRUCTORS ----------
 
 function CampgroundSummary(c) {
-  this.availabilityStatus = c.availabilityStatus || 'API unknown';
+  this.availabilityStatus = c.availabilityStatus ? (c.availabilityStatus === 'Y' ? 'Available' : 'Unavailable') : 'API unknown';
   this.facilityID = c.facilityID || 'API unknown';
   this.facilityName = c.facilityName || 'API unknown';
-  this.faciltyPhoto = c.faciltyPhoto || 'API unknown';
+  this.faciltyPhoto = c.faciltyPhoto ? 'http://www.reserveamerica.com' + c.faciltyPhoto : 'API unknown';
   this.latitude = c.latitude || 'API unknown';
   this.longitude = c.longitude || 'API unknown';
   this.regionName = c.regionName || 'API unknown';
