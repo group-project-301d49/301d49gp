@@ -2,11 +2,13 @@
 
 <section class='search-results'>
 
+
   <% camps.forEach(camp => { %>
 
   <p><%= camp.availabilityStatus %></p>
   <p><%= camp.facilityName %></p>
-  <a class="details-link">Camp details go here</a>
+  <img src="<%= camp.faciltyPhoto  %>" alt="<%= camp.facilityName %>">
+  <a class="">See details</a>
 
   </div>
   <% }) %>
