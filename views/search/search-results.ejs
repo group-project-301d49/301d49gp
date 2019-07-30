@@ -1,0 +1,16 @@
+<!-- recieves an array of CampgroundSummary objects called 'camps' from server -->
+
+<section class='search-results'>
+
+
+  <% camps.forEach(camp => { %>
+
+  <p><%= camp.availabilityStatus %></p>
+  <p><%= camp.facilityName %></p>
+  <img src="<%= camp.faciltyPhoto  %>" alt="<%= camp.facilityName %>">
+  <a class="">See details</a>
+
+  </div>
+  <% }) %>
+
+</section>
