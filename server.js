@@ -62,8 +62,7 @@ async function getSearch(req, res) {
   const latLong = await getLatLong(query);
 
 
-  let CAMPGROUND_API = '6h5g9gppzyn2rmffsvvwsj8f';
-  let URL = `http://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=${latLong.lat}&landmarkLong=${latLong.lng}&xml=true&api_key=${CAMPGROUND_API}`;
+  let URL = `http://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=${latLong.lat}&landmarkLong=${latLong.lng}&xml=true&api_key=${process.env.CAMPGROUND_API_KEY}`;
 
   try {
     const xmlResults = await superagent.get(URL);
