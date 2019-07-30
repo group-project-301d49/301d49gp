@@ -1,6 +1,15 @@
+<!-- VAR forcastStr is a string EXAMPLE: '47d61n122d33/seattle/' -->
+<!-- VAR forcastStr is injected EXAMPLE: '47d61n122d33/seattle/' -->
+<!-- VAR cityName is injected EXAMPLE: 'Los Angeles' -->
+<!-- VAR camps is an array of objects -->
+
+
 <section class='search'>
 
+    <%- include('./search-weather', {forcastStr:forcastStr, cityName:cityName})  %>
+
     <%- include('./map-results', {})  %>
+
     <%- include('./search-results', {camps:camps})  %>
 
 </section>
