@@ -1,9 +1,16 @@
+'use strict'
 
 function init() {
 
-  $('#usersSearch').keypress(function (e) {
-    if (e.which == 13) {//Enter key pressed
-      console.log('ENTER KEY PRESSED')
+  $('.searchbar').keypress(function (e) {
+    if (e.which === 13) { //Enter key pressed
+      console.log(e.target.value);
+
+      $.ajax({
+        url: `/search/${e.target.value}`,
+        type: 'POST',
+        success: function (result) { window.location.href = "/" }
+      })
     }
   });
 
