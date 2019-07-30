@@ -54,16 +54,14 @@ app.post('/search/:query', getSearch);
 
 
 async function getSearch(req, res) {
-  console.log('search worked');
 
   let query = req.params.query;
 
-  // get latitude and longitude for queried location
-  const latLong = await getLatLong(query);
+  // get latitude and longitude and city name for queried location
+  const locationResults = await getLocationData(query);
 
 
-  let CAMPGROUND_API = '6h5g9gppzyn2rmffsvvwsj8f';
-  let URL = `http://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=${latLong.lat}&landmarkLong=${latLong.lng}&xml=true&api_key=${CAMPGROUND_API}`;
+  let URL = `http://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=${locationResults.latLong.lat}&landmarkLong=${locationResults.latLong.lng}&xml=true&api_key=${process.env.CAMPGROUND_API_KEY}`;
 
   try {
     const xmlResults = await superagent.get(URL);
@@ -78,9 +76,27 @@ async function getSearch(req, res) {
     const constructedCamps = campArr.map(camp => {
       return new CampgroundSummary(camp.attributes);
     })
+    // console.log(constructedCamps);
 
-    console.log(constructedCamps);
-    res.render('search/search', { camps: constructedCamps });
+    // create url string to append to weather widget search
+    // 47d61n122d33/seattle/
+    const lat = Number.parseFloat(locationResults.latLong.lat)
+      .toFixed(2)
+      .toString()
+      .replace('-', '')
+      .split('.')
+    const long = Number.parseFloat(locationResults.latLong.lng)
+      .toFixed(2)
+      .toString()
+      .replace('-', '')
+      .split('.')
+    const parsedCityName = locationResults.cityName.replace(/\s+/g, '-').toLowerCase()
+
+    // console.log(lat, long);
+    const forcastStr = `${lat[0]}d${lat[1]}n${long[0]}d${long[1]}/${parsedCityName}/`;
+    console.log(forcastStr);
+
+    res.render('search/search', { camps: constructedCamps, forcastStr: forcastStr, cityName: locationResults.cityName });
 
   } catch (e) {
     console.log('getSearch() ERROR: ', e);
@@ -93,12 +109,16 @@ async function getSearch(req, res) {
 
 // #region ---------- HELPER FUNCTIONS ----------
 
-async function getLatLong(query) {
+async function getLocationData(query) {
   try {
     const location_URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${process.env.GEOCODE_API_KEY}`;
-    const result = await superagent.get(location_URL)
+    const result = await superagent.get(location_URL);
 
-    return result.body.results[0].geometry.location;
+    // console.log(result.body.results[0].geometry.location);
+    // console.log(result.body.results[0].address_components[0].long_name.replace(/\s+/g, '-').toLowerCase());
+    const latLong = result.body.results[0].geometry.location;
+    const cityName = result.body.results[0].address_components[0].long_name;
+    return { latLong, cityName };
 
   } catch (e) {
     console.log('getLatLong(query) ERROR: ', e);
