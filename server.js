@@ -43,13 +43,10 @@ app.listen(PORT, () => console.log('Listening on port:', PORT));
 
 // API Routes
 app.get('/', (request, response) => {
-  response.render('layout/homepage');
+  response.render('index');
 });
-// app.get('/', (request, response) => {
-//   response.render('layout/footer');
-// });
 app.get('/test', testFunction);
-app.get('/search', getSearch);
+app.post('/search/:query', getSearch);
 
 // #endregion ROUTES
 
@@ -57,11 +54,12 @@ app.get('/search', getSearch);
 
 
 async function getSearch(req, res) {
-  // TODO: get query from req
-  let tempQuery = 'seattle';
+  console.log('search worked');
+
+  let query = req.params.query;
 
   // get latitude and longitude for queried location
-  const latLong = await getLatLong(tempQuery);
+  const latLong = await getLatLong(query);
 
 
   let CAMPGROUND_API = '6h5g9gppzyn2rmffsvvwsj8f';
@@ -82,8 +80,7 @@ async function getSearch(req, res) {
     })
 
     console.log(constructedCamps);
-
-    // TODO: res.render /search.ejs with constructedCamps
+    res.render('layout/search-results', { camps: constructedCamps });
 
   } catch (e) {
     console.log('getSearch() ERROR: ', e);
