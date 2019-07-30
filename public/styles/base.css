@@ -1,5 +1,7 @@
 /* for mobile */
 
+
+
 header {
     border: black solid 2px;
 }
@@ -30,8 +32,4 @@ div {
 
 p {
     border: indigo solid 2px;
-}
-
-nav {
-    
 }
