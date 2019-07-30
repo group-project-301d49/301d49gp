@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('/layout/head') %>
-  </head>
-  <body>
-    <%- include('/header') %>
-    <main>
-      <h4>Saved Books</h4>
-      <p><%= books.length %> books in the Collection</p>
-      <ul id="book-list">
-        <% books.forEach(book => { %>
-          <li class="book-items" data-book-id="<%= book.id %>">
-            <%- include('books/details', {book: book}) %>
-            <p class="detail-button"><a href="/books/<%= book.id %>">View Details</a></p>
-          </li>
-        <% }) %>
-      </ul>
-    </main>
-    <%- include('../layout/footer') %>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <header>
+
+    <%- include('./layout/header', {})  %>
+
+  </header>
+
+  <main>
+
+    <h1>THIS IS THE HOME PAGE</h1>
+    <h2>INSERT: our hero imagery here</h2>
+    <img src="/assets/reference/rv-camping-doodle.jpg" />
+
+
+  </main>
+
+  <footer>
+
+    <%- include('./layout/footer', {})  %>
+
+  </footer>
+
+</body>
+
 </html>
