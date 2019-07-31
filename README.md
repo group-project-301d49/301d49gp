@@ -1,48 +1,46 @@
 # 301d49gp
 301 49 Cohort Group Project - Authors: Brad, Leyla, Corey, Ben, Lyndsey
 
-Initial Project Ideas:
-Camping Site Availabilty Mapping, with Weather Info, and limited site details, including activities (hiking, swimming, fishing, etc)
-DIRECTIONS - Stretch Goal? 
+S'Mores: The Camping Explorer
 
-### Needs: 
-Location API
-Nat'l Parks API
-Weather API
-
-# FinalProject
-Final Project Repo Initiation (*to be updated) 
 
 ## Project title
 S'mores - Camping Explorer 
 
 
 ## Motivation
+As a user, I want an all-in-one app experience to look up location and amenities for campsites in my area. 
 
-As a user i want to be able to enter a location (request).
+I want intiutive results that display based on my input, with a user-friendly and easily navigable interface.
 
-As a user i want to see results of my search with a list of camp sites.
+I want to see several results at a time, and be able to choose between them quickly. 
 
-As a user i want to be able to see a map with pins telling me camping sites depending on my location.
+As a user, I want an interactive map with easy-to-interpret pins or icons showing the camp locations. 
 
-As a user i want to be able to see the weather for set amount of days.
+As a user, I want to be able to check the weather forecast for the site that I am visiting. 
+
+As a user, I want to see the campsite's booking availibility so I can plan my trip in advance. 
+
 
 ### strech goal :
 
 As a user i would like to be able to to click a result and get details of things/events to do at that camp site.
 
 
-
-
-
 ## Build status
+Wednesday July 31 - Close to MVP. Weather and Parks APIs results displaying. Search functionality working correctly. Some styling applied.
 
 
 ## Code style
+CSS/HTML5 
+JavaScript
+jQuery 
+ajax
 
 
 ## API Reference
-
+Active Access Campground API - http://developer.active.com/docs/read/Campground_APIs
+DarkSky Weather API - https://darksky.net/dev
 
 ## Tests
 
