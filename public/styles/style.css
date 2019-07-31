@@ -14,7 +14,8 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-/* Hamburger style*/
+
+  /* Hamburger style*/
 :root {
   --primary-color: rgb(7, 7, 7, .15 );
   --overlay-color: rgba(10, 15, 19, .85);
