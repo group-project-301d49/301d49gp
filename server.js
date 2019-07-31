@@ -47,6 +47,7 @@ app.get('/', (request, response) => {
 });
 app.get('/aboutMe',(request, response) => {
   response.render('aboutMe')});
+  
 app.get('/test', testFunction);
 app.post('/search/:query', getSearch);
 
