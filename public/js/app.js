@@ -20,6 +20,7 @@ function renderSearch(HTML) {
   $('main').empty().append(HTML);
   // renderWeather(document, 'script', 'weatherwidget-io-js');
   renderMap();
+  $('.camp-detail-link').on('click', getCampDetails);
 
 }
 
@@ -47,8 +48,7 @@ function renderMap() {
   // });
   latArr.reduce((acc, value) => acc += value)
   for (let i = 0; i < latArr.length; i++) {
-    const marker = L.marker([latArr[i], lngArr[i]]).addTo(mymap);
-
+    L.marker([latArr[i], lngArr[i]]).addTo(mymap);
   }
 
   // marker.bindPopup('1');
@@ -56,21 +56,18 @@ function renderMap() {
 }
 
 
-// function renderWeather(document, script, weatherID) {
-//   if (document.getElementById(weatherID))
-//     document.getElementById(weatherID).remove();
+function getCampDetails() {
+  console.log(event.target.getAttribute('data-facilityID'));
+  const facilityID = event.target.getAttribute('data-facilityID')
+  const contractID = event.target.getAttribute('data-contractID')
 
-//   var fjs = document.getElementsByTagName(script)[0];
-//   console.log(document.getElementsByTagName(script));
+  const params = JSON.stringify({ facilityID: facilityID, contractID: contractID });
+  console.log(params);
 
-//   // create and insert new weather script
-//   let js;
-//   js = document.createElement(script);
-//   js.id = weatherID;
-//   js.src = 'https://weatherwidget.io/js/widget.min.js';
-//   fjs.parentNode.insertBefore(js, fjs);
+  $.get(`/campground/${params}`, () => { window.location.href = `/campground/${params}` });
+}
 
-// }
+
 
 
 $(() => {

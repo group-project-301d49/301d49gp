@@ -42,15 +42,54 @@ app.listen(PORT, () => console.log('Listening on port:', PORT));
 // #region ---------- ROUTES ----------
 
 // API Routes
+
 app.get('/', (request, response) => {
   response.render('index');
 });
+app.get('/aboutMe',(request, response) => {
+  response.render('aboutMe')});
+
 app.get('/test', testFunction);
 app.post('/search/:query', getSearch);
+app.get('/campground/:query', getCampground);
 
 // #endregion ROUTES
 
 // #region ---------- ROUTE HANDLERS ----------
+
+
+async function getCampground(req, res) {
+  const query = JSON.parse(req.params.query);
+  // let URL = `https://www.reserveamerica.com/campgroundDetails.do?contractCode=${query.contractID}&parkId=${query.facilityID}&api_key=${process.env.CAMPGROUND_API_KEY}&xml=true`
+  let URL = `https://www.reserveamerica.com/campgroundDetails.do?contractCode=KOAI&parkId=730514&api_key=6h5g9gppzyn2rmffsvvwsj8f&xml=true`
+
+  console.log('ZEBRA', URL, 'ZEBRA END')
+  try {
+    // make our API call
+    const xmlResults = await superagent.get(URL);
+
+    // console.log('ZEBRA', Object.keys(xmlResults.req), 'ZEBRA END')
+    console.log('ZEBRA', xmlResults, 'ZEBRA END')
+
+    // parse XML string to JS object
+    // const result = await XMLconverter.xml2js(xmlResults.req.res.text);
+    // console.log('ZEBRA', Object.keys(result), 'ZEBRA END')
+
+    //  // dig into the returned JS object
+    //  const campArr = result.elements[0].elements.slice(0, 10);
+
+    //  // construct an array of campground summaries
+    //  const constructedCamps = campArr.map(camp => {
+    //    return new CampgroundSummary(camp.attributes);
+    //  })
+    //  // console.log(constructedCamps);
+
+    // console.log('ZEBRA', result, 'ZEBRA END')
+
+  } catch (e) {
+    console.log('getSearch() ERROR: ', e, 'END getSearch() ERROR: ');
+  }
+}
 
 
 async function getSearch(req, res) {
@@ -132,6 +171,7 @@ async function getLocationData(query) {
 
 function CampgroundSummary(c) {
   this.availabilityStatus = c.availabilityStatus ? (c.availabilityStatus === 'Y' ? 'Available' : 'Unavailable') : 'API unknown';
+  this.contractID = c.contractID || 'API unknown';
   this.facilityID = c.facilityID || 'API unknown';
   this.facilityName = c.facilityName || 'API unknown';
   this.faciltyPhoto = c.faciltyPhoto ? 'http://www.reserveamerica.com' + c.faciltyPhoto : 'API unknown';
