@@ -1,5 +1,5 @@
     /* Styles */
-
+    @media only screen and (min-width: 768px){
     body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/displayed/hero_image.jpg);
     background-color: black; 
@@ -90,17 +90,16 @@
 
     h1 {
     color: white; 
-    float: right;
+    /* float: right; */
     }
 
     #logo-vector {
     height: 50px;
     width: 50px; 
-    float:left;
     }
+}
 
 
-@media only screen and (max-width: 767px){
     /* Styles mobile */
 
     body {
@@ -194,7 +193,7 @@
 
     h1 {
     color: white;
-    float:right; 
+    /* float:right;  */
     }
 
     #logo-vector {
@@ -203,4 +202,3 @@
     float:left;
     }
 
-}
