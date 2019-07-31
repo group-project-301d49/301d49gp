@@ -8,6 +8,7 @@ const express = require('express');
 const pg = require('pg');
 const superagent = require('superagent');
 var XMLconverter = require('xml-js');
+const puppeteer = require('puppeteer');
 
 
 // Environment variables
@@ -51,7 +52,7 @@ app.get('/aboutMe',(request, response) => {
 
 app.get('/test', testFunction);
 app.post('/search/:query', getSearch);
-app.get('/campground/:query', getCampground);
+app.get('/campground', getCampground);
 
 // #endregion ROUTES
 
@@ -59,35 +60,33 @@ app.get('/campground/:query', getCampground);
 
 
 async function getCampground(req, res) {
-  const query = JSON.parse(req.params.query);
-  // let URL = `https://www.reserveamerica.com/campgroundDetails.do?contractCode=${query.contractID}&parkId=${query.facilityID}&api_key=${process.env.CAMPGROUND_API_KEY}&xml=true`
-  let URL = `https://www.reserveamerica.com/campgroundDetails.do?contractCode=KOAI&parkId=730514&api_key=6h5g9gppzyn2rmffsvvwsj8f&xml=true`
 
-  console.log('ZEBRA', URL, 'ZEBRA END')
+  let contractCode = 'CO';
+  let parkId = 50032;
+
   try {
-    // make our API call
-    const xmlResults = await superagent.get(URL);
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(`https://www.reserveamerica.com/campgroundDetails.do?contractCode=${contractCode}&parkId=${parkId}&xml=true`, { waitUntil: 'networkidle2' });
 
-    // console.log('ZEBRA', Object.keys(xmlResults.req), 'ZEBRA END')
-    console.log('ZEBRA', xmlResults, 'ZEBRA END')
+    let resultObj = [];
 
-    // parse XML string to JS object
-    // const result = await XMLconverter.xml2js(xmlResults.req.res.text);
-    // console.log('ZEBRA', Object.keys(result), 'ZEBRA END')
+    const attrHandles = await page.$$('.html-attribute');
+    // console.log(attrHandles)
+    for (const attrHandle of attrHandles) {
+      const attr = await attrHandle.$eval('.html-attribute-name', e => e.textContent);
+      const value = await attrHandle.$eval('.html-attribute-value', e => e.textContent);
 
-    //  // dig into the returned JS object
-    //  const campArr = result.elements[0].elements.slice(0, 10);
+      resultObj.push({ attr, value });
+    }
 
-    //  // construct an array of campground summaries
-    //  const constructedCamps = campArr.map(camp => {
-    //    return new CampgroundSummary(camp.attributes);
-    //  })
-    //  // console.log(constructedCamps);
+    await browser.close();
 
-    // console.log('ZEBRA', result, 'ZEBRA END')
+    const camp = new Campground(resultObj);
+    console.log(camp);
 
   } catch (e) {
-    console.log('getSearch() ERROR: ', e, 'END getSearch() ERROR: ');
+    console.log('PUPPETEER', e, 'PUPPETEER END');
   }
 }
 
@@ -186,6 +185,23 @@ function CampgroundSummary(c) {
   this.sitesWithWaterfront = c.sitesWithWaterfront || 'API unknown';
   this.statestate = c.state || 'API unknown';
 }
+
+
+function Campground(c) {
+  this.descripton = c.filter(e => e.attr === 'description')[0].value;
+  this.reservationURL = c.filter(e => e.attr === 'fullReservationUrl')[0].value;
+  this.drivingDirections = c.filter(e => e.attr === 'drivingDirection')[0].value;
+  this.facilityName = c.filter(e => e.attr === 'facility')[0].value;
+  this.latitude = c.filter(e => e.attr === 'latitude')[0].value;
+  this.longitude = c.filter(e => e.attr === 'longitude')[0].value;
+  this.phoneNumber = c.filter(e => e.attr === 'number')[0].value;
+  this.city = c.filter(e => e.attr === 'city')[0].value;
+  this.streetAddress = c.filter(e => e.attr === 'streetAddress')[0].value;
+  this.zip = c.filter(e => e.attr === 'zip')[0].value;
+  this.photos = c.filter(e => e.attr === 'realUrl')
+    .map(p => 'https://www.reserveamerica.com' + p.value);
+}
+
 
 // #endregion CONSTRUCTORS
 
