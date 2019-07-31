@@ -42,7 +42,13 @@ app.listen(PORT, () => console.log('Listening on port:', PORT));
 // #region ---------- ROUTES ----------
 
 // API Routes
-app.get('/', (request, response) => response.render('index'));
+
+app.get('/', (request, response) => {
+  response.render('index');
+});
+app.get('/aboutMe',(request, response) => {
+  response.render('aboutMe')});
+
 app.get('/test', testFunction);
 app.post('/search/:query', getSearch);
 app.get('/campground/:query', getCampground);
