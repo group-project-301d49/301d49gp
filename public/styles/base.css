@@ -12,33 +12,34 @@
     font-family: 'Amatic SC', cursive;
     }
 
-    #search-results {
-    background-color: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), #324357;
-    color: white;
-    font-family: 'Roboto', sans-serif;
+    .search-results {
+        color: white;
+        border-radius: 25px;
+        font-family: 'Neucha', cursive;
+        background: rgba(0, 0, 0, 0.7);
     }
 
     .camp-summary {
-    text-align: center;
-    background-color: #536450;
-    border-radius: 25px; 
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-size: 25px; 
-    /* height: 50%; */
-    margin: 7px;
-    padding: 7px; 
-    box-shadow: 5px 5px 5px #536450;
+        text-align: center;
+        background: rgba(83, 100, 80, 0.7);
+        border-radius: 25px; 
+        color: white;
+        font-size: 25px; 
+        margin: 7px;
+        padding: 7px; 
+    }
+
+    p {
+        /* border: 2px solid orange; */
+        color: white;
+        font-size: 25px; 
+        opacity: 100%;
     }
 
     #details {
     font-family: 'Amatic SC', cursive;
     font-style: italic;
     }
-
-
-    /* for mobile */
-
 
     a:link {
         color: white; 
@@ -100,7 +101,7 @@
 
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 481px) {
     /* Styles */
 
     body {
@@ -114,33 +115,34 @@
     font-family: 'Amatic SC', cursive;
     }
 
-    #search-results {
-    background-color: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), #324357;
-    color: white;
-    font-family: 'Roboto', sans-serif;
+    .search-results {
+        color: white;
+        border-radius: 25px;
+        font-family: 'Neucha', cursive;
+        background: rgba(0, 0, 0, 0.7);
     }
 
     .camp-summary {
-    text-align: center;
-    background-color: #536450;
-    border-radius: 25px; 
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-size: 25px; 
-    /* height: 50%; */
-    margin: 7px;
-    padding: 7px; 
-    box-shadow: 5px 5px 5px #536450;
+        text-align: center;
+        background: rgba(83, 100, 80, 0.7);
+        border-radius: 25px; 
+        color: white;
+        font-size: 25px; 
+        margin: 7px;
+        padding: 7px; 
+    }
+
+    p {
+        /* border: 2px solid orange; */
+        color: white;
+        font-size: 25px; 
+        opacity: 100%;
     }
 
     #details {
     font-family: 'Amatic SC', cursive;
     font-style: italic;
     }
-
-
-    /* for mobile */
-
 
     a:link {
         color: white; 

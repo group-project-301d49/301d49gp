@@ -158,6 +158,7 @@ async function getLocationData(query) {
     // console.log(result.body.results[0].address_components[0].long_name.replace(/\s+/g, '-').toLowerCase());
     const latLong = result.body.results[0].geometry.location;
     const cityName = result.body.results[0].address_components.filter(e => e.types.includes('locality'))[0].long_name;
+    console.log(result.body.results[0].address_components);
     return { latLong, cityName };
 
   } catch (e) {

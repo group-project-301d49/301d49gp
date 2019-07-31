@@ -1,15 +1,6 @@
 <!-- camp {
-    this.descripton = c.filter(e => e.attr === 'description')[0].value;
-  this.reservationURL = c.filter(e => e.attr === 'fullReservationUrl')[0].value;
-  this.drivingDirections = c.filter(e => e.attr === 'drivingDirection')[0].value;
-  this.facilityName = c.filter(e => e.attr === 'facility')[0].value;
-  this.latitude = c.filter(e => e.attr === 'latitude')[0].value;
-  this.longitude = c.filter(e => e.attr === 'longitude')[0].value;
-  this.phoneNumber = c.filter(e => e.attr === 'number')[0].value;
-  this.city = c.filter(e => e.attr === 'city')[0].value;
-  this.streetAddress = c.filter(e => e.attr === 'streetAddress')[0].value;
-  this.zip = c.filter(e => e.attr === 'zip')[0].value;
-  this.photos 
+    descripton, reservationURL, drivingDirections, facilityName, latitude, 
+    longitude, phoneNumber, city, streetAddress, zip, photos[]
 }-->
 
 
@@ -61,12 +52,30 @@
 
     </header>
 
+    <!-- camp {
+    descripton, reservationURL, drivingDirections, facilityName, latitude, 
+    longitude, phoneNumber, city, streetAddress, zip, photos[]
+}-->
 
     <main>
-        <%= camp.facilityName  %>
-        <h1>THIS IS THE camp detail page</h1>
-        <h2>INSERT: camp data here</h2>
 
+        <section>
+
+            <h1><%= camp.facilityName  %></h1>
+            <p><%= camp.descripton %></p>
+            <p><%= camp.reservationURL %></p>
+            <p>DRIVING DIRECTIONS<%= camp.drivingDirections %></p>
+            <p>PHONE#: <%= camp.phoneNumber %></p>
+            <p>ADDRESS: <%= camp.streetAddress %>, <%= camp.city %>, <%= camp.zip %></p>
+            <p>Photos of the <%= camp.facilityName  %></p>
+            <% camp.photos.forEach(e=>{ %>
+            <img src="<%= e %>" />
+            <% }) %>
+
+            <p>LAT/LONG: <%= camp.latitude %>/<%= camp.longitude %></p>
+            <p></p>
+
+        </section>
 
     </main>
 
