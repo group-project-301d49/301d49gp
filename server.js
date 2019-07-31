@@ -116,8 +116,7 @@ async function getSearch(req, res) {
     })
     // console.log(constructedCamps);
 
-    // create url string to append to weather widget search
-    // 47d61n122d33/seattle/
+    // create url string to append to weather widget search // 47d61n122d33/seattle/
     const lat = Number.parseFloat(locationResults.latLong.lat)
       .toFixed(2)
       .toString()
