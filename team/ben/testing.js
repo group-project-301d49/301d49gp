@@ -91,4 +91,3 @@ async function getLocation(request, response) {
 
 getLocation();
 
-
