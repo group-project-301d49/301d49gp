@@ -1,30 +1,35 @@
 <!-- VAR camps is an array of objects that look like EXAMPLE: [{
-    availabilityStatus: 'Available',
-    facilityID: '722031',
-    facilityName: 'Fern Lake Campground &amp; RV Park',
-    faciltyPhoto: 'http://www.reserveamerica.com/webphotos/INDP/pid722031/0/80x53.jpg',
-    latitude: '37.0964306',
-    longitude: '-88.69545',
-    regionName: 'API unknown',
-    reservationChannel: 'Web Reservable',
-    shortName: 'GS1931',
-    sitesWithAmps: 'Y',
-    sitesWithPetsAllowed: 'Y',
-    sitesWithSewerHookup: 'N',
-    sitesWithWaterHookup: 'N',
-    sitesWithWaterfront: 'API unknown',
-    statestate: 'KY'
-  }] -->
+  availabilityStatus: 'Available',
+  contractID: CO,
+  facilityID: '722031',
+  facilityName: 'Fern Lake Campground &amp; RV Park',
+  faciltyPhoto: 'http://www.reserveamerica.com/webphotos/INDP/pid722031/0/80x53.jpg',
+  latitude: '37.0964306',
+  longitude: '-88.69545',
+  regionName: 'API unknown',
+  reservationChannel: 'Web Reservable',
+  shortName: 'GS1931',
+  sitesWithAmps: 'Y',
+  sitesWithPetsAllowed: 'Y',
+  sitesWithSewerHookup: 'N',
+  sitesWithWaterHookup: 'N',
+  sitesWithWaterfront: 'API unknown',
+  statestate: 'KY'
+}] -->
 <section class='search-results'>
 
 
   <% camps.forEach(camp => { %>
   <section class='camp-summary' data-lat='<%- camp.latitude %>' data-lng='<%- camp.longitude %>'>
 
+    <p><%= camp.contractID %></p>
+    <p><%= camp.facilityID %></p>
     <p><%= camp.availabilityStatus %></p>
     <p><%- camp.facilityName %></p>
     <img src="<%= camp.faciltyPhoto  %>" alt="<%= camp.facilityName %>">
-    <a class="">See details</a>
+    <button class="camp-detail-link" data-facilityID="<%= camp.facilityID %>"
+      data-contractID="<%= camp.contractID %>">See
+      details</button>
 
   </section>
 
