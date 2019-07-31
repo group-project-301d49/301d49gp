@@ -22,14 +22,10 @@
   <% camps.forEach(camp => { %>
   <section class='camp-summary' data-lat='<%- camp.latitude %>' data-lng='<%- camp.longitude %>'>
 
-    <p><%= camp.contractID %></p>
-    <p><%= camp.facilityID %></p>
-    <p><%= camp.availabilityStatus %></p>
-    <p><%- camp.facilityName %></p>
-    <img src="<%= camp.faciltyPhoto  %>" alt="<%= camp.facilityName %>">
-    <button class="camp-detail-link" data-facilityID="<%= camp.facilityID %>"
-      data-contractID="<%= camp.contractID %>">See
-      details</button>
+    <p class="camp-results"><%= camp.availabilityStatus %></p>
+    <p class="camp-results"><%- camp.facilityName %></p>
+    <img id="thumbnail-image" src="<%= camp.faciltyPhoto  %>" alt="<%= camp.facilityName %>">
+    <a id="details">See details</a>
 
   </section>
 
