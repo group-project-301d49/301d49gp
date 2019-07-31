@@ -1,4 +1,7 @@
-body {
+@media only screen and (max-width: 480px) {
+    /* Styles */
+
+    body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/displayed/hero_image.jpg);
     background-color: black; 
     height: 1000px; 
@@ -7,89 +10,194 @@ body {
     background-size: cover; 
     color: white; 
     font-family: 'Amatic SC', cursive;
-}
+    }
 
-#search-results {
+    #search-results {
     background-color: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), #324357;
     color: white;
     font-family: 'Roboto', sans-serif;
-}
+    }
 
-.camp-summary {
-    /* float: right; */
+    .camp-summary {
     text-align: center;
     background-color: #536450;
-    border: 5px pink solid; 
     border-radius: 25px; 
     color: white;
     font-family: 'Roboto', sans-serif;
-    font-size: 75px; 
-    height: 50%;
-    margin: 4px;
-    padding: 4px; 
+    font-size: 25px; 
+    /* height: 50%; */
+    margin: 7px;
+    padding: 7px; 
     box-shadow: 5px 5px 5px #536450;
-}
+    }
 
-#details {
+    #details {
     font-family: 'Amatic SC', cursive;
-}
+    font-style: italic;
+    }
 
 
-/* for mobile */
+    /* for mobile */
 
 
-  a:link {
-      color: white; 
-      text-decoration: none;
-  }
+    a:link {
+        color: white; 
+        text-decoration: none;
+    }
 
-  a:visited {
+    a:visited {
     color: white;
     text-decoration: none;
-  }
+    }
 
-  a:hover {
-      color: #652F08;
-      text-decoration: none;
-  }
+    a:hover {
+        color: #652F08;
+        text-decoration: none;
+    }
 
 
-header {
+    header {
     font: white; 
     text-decoration: none;
     background-color: black;
-}
+    }
 
-a > h1 {
+    a > h1 {
     background-color: black;
     height: 85%;
     font-size: 50px;
     font-weight: bold;
     text-decoration: none;
     text-align: right; 
-}
+    }
 
-main {
+    main {
     height: 90%;
     width: 90%;
     margin: auto;
     font: white;
     text-decoration: none;
-}
+    }
 
-footer {
+    footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%; 
+    }
+
+    h2 {
     color: white;
-}
+    }
 
-h2 {
-    color: white;
-}
-
-h1 {
+    h1 {
     color: white; 
-}
+    }
 
-#logo-vector {
+    #logo-vector {
     height: 50px;
     width: 50px; 
+    }
+
+}
+
+@media only screen and (min-width: 480px) {
+    /* Styles */
+
+    body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/displayed/hero_image.jpg);
+    background-color: black; 
+    height: 1000px; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    color: white; 
+    font-family: 'Amatic SC', cursive;
+    }
+
+    #search-results {
+    background-color: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), #324357;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    }
+
+    .camp-summary {
+    text-align: center;
+    background-color: #536450;
+    border-radius: 25px; 
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px; 
+    /* height: 50%; */
+    margin: 7px;
+    padding: 7px; 
+    box-shadow: 5px 5px 5px #536450;
+    }
+
+    #details {
+    font-family: 'Amatic SC', cursive;
+    font-style: italic;
+    }
+
+
+    /* for mobile */
+
+
+    a:link {
+        color: white; 
+        text-decoration: none;
+    }
+
+    a:visited {
+    color: white;
+    text-decoration: none;
+    }
+
+    a:hover {
+        color: #652F08;
+        text-decoration: none;
+    }
+
+
+    header {
+    font: white; 
+    text-decoration: none;
+    background-color: black;
+    }
+
+    a > h1 {
+    background-color: black;
+    height: 85%;
+    font-size: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: right; 
+    }
+
+    main {
+    height: 90%;
+    width: 90%;
+    margin: auto;
+    font: white;
+    text-decoration: none;
+    }
+
+    footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%; 
+    }
+
+    h2 {
+    color: white;
+    }
+
+    h1 {
+    color: white; 
+    }
+
+    #logo-vector {
+    height: 50px;
+    width: 50px; 
+    }
+
 }
