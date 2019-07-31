@@ -25,7 +25,13 @@
     <p class="camp-results"><%= camp.availabilityStatus %></p>
     <p class="camp-results"><%- camp.facilityName %></p>
     <img id="thumbnail-image" src="<%= camp.faciltyPhoto  %>" alt="<%= camp.facilityName %>">
-    <a id="details">See details</a>
+
+    <form action="/campground/<%= camp.facilityID %>/<%= camp.contractID %>" method="GET" id="details"
+      class="camp-details-link">
+      <!-- <input name="facilityID" value="<%= camp.facilityID %>" />
+      <input name="contractID" value="<%= camp.contractID %>" /> -->
+      <button type='submit'>See Details</button>
+    </form>
 
   </section>
 

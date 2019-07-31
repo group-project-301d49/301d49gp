@@ -20,7 +20,7 @@ function renderSearch(HTML) {
   $('main').empty().append(HTML);
   // renderWeather(document, 'script', 'weatherwidget-io-js');
   renderMap();
-  $('.camp-detail-link').on('click', getCampDetails);
+  $('.camp-details-link').on('click', getCampDetails);
 
 }
 
@@ -57,9 +57,9 @@ function renderMap() {
 
 
 function getCampDetails() {
-  console.log(event.target.getAttribute('data-facilityID'));
   const facilityID = event.target.getAttribute('data-facilityID')
   const contractID = event.target.getAttribute('data-contractID')
+  console.log(facilityID, contractID);
 
   const params = JSON.stringify({ facilityID: facilityID, contractID: contractID });
   console.log(params);
