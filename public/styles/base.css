@@ -3,7 +3,7 @@
 
     body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/displayed/hero_image.jpg);
-    background-color: black; 
+    background-color: gray; 
     height: 1000px; 
     background-position: center; 
     background-repeat: no-repeat; 
@@ -12,33 +12,27 @@
     font-family: 'Amatic SC', cursive;
     }
 
-    #search-results {
-    background-color: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), #324357;
-    color: white;
-    font-family: 'Roboto', sans-serif;
+    .search-results {
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        background-color: #536450;
     }
 
     .camp-summary {
-    text-align: center;
-    background-color: #536450;
-    border-radius: 25px; 
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-size: 25px; 
-    /* height: 50%; */
-    margin: 7px;
-    padding: 7px; 
-    box-shadow: 5px 5px 5px #536450;
+        text-align: center;
+        /* background-color: #536450; */
+        border-radius: 25px; 
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-size: 25px; 
+        margin: 7px;
+        padding: 7px; 
     }
 
     #details {
     font-family: 'Amatic SC', cursive;
     font-style: italic;
     }
-
-
-    /* for mobile */
-
 
     a:link {
         color: white; 
@@ -100,7 +94,7 @@
 
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 481px) {
     /* Styles */
 
     body {
@@ -118,28 +112,24 @@
     background-color: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), #324357;
     color: white;
     font-family: 'Roboto', sans-serif;
+    /* background-color: #536450; */
     }
 
     .camp-summary {
     text-align: center;
-    background-color: #536450;
+    /* background-color: #536450; */
     border-radius: 25px; 
     color: white;
     font-family: 'Roboto', sans-serif;
     font-size: 25px; 
-    /* height: 50%; */
     margin: 7px;
     padding: 7px; 
-    box-shadow: 5px 5px 5px #536450;
     }
 
     #details {
     font-family: 'Amatic SC', cursive;
     font-style: italic;
     }
-
-
-    /* for mobile */
 
 
     a:link {
