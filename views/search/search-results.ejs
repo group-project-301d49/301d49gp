@@ -25,7 +25,9 @@
     <p class="camp-results"><%= camp.availabilityStatus %></p>
     <p class="camp-results"><%- camp.facilityName %></p>
     <img id="thumbnail-image" src="<%= camp.faciltyPhoto  %>" alt="<%= camp.facilityName %>">
-    <a id="details">See details</a>
+    <a href="/campround/?facilityID=<%= camp.facilityID %>&contractID=<%= camp.contractID %>" id="details"
+      class="camp-details-link">See
+      details</a>
 
   </section>
 
