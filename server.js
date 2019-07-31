@@ -53,7 +53,7 @@ app.get('/aboutMe', (request, response) => {
 
 app.get('/test', testFunction);
 app.post('/search/:query', getSearch);
-app.get('/campground/:query', getCampground);
+app.get('/campground/:facilityId/:contractId', getCampground);
 
 // #endregion ROUTES
 
@@ -61,14 +61,15 @@ app.get('/campground/:query', getCampground);
 
 
 async function getCampground(req, res) {
-  // res.render('camp-detail');
-  const facilityData = JSON.parse(req.params.query);
+  console.log('FRUIT', req.params);
 
+  const contractID = req.params.contractId;
+  const facilityID = req.params.facilityId;
 
   try {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto(`https://www.reserveamerica.com/campgroundDetails.do?contractCode=${facilityData.contractID}&parkId=${facilityData.facilityID}&xml=true`, { waitUntil: 'networkidle2' });
+    await page.goto(`https://www.reserveamerica.com/campgroundDetails.do?contractCode=${contractID}&parkId=${facilityID}&xml=true`, { waitUntil: 'networkidle2' });
 
     let resultObj = [];
 
