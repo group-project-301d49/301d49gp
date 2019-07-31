@@ -2,7 +2,7 @@
 
 function init() {
 
-  $('.searchbar').keypress(function (e) {
+  $('.tb').keypress(function (e) {
     if (e.which === 13) { //Enter key pressed
       console.log(e.target.value);
 
