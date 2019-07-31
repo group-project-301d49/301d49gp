@@ -1,100 +1,3 @@
-@media only screen and (max-width: 480px) {
-    /* Styles */
-
-    body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/displayed/hero_image.jpg);
-    background-color: gray; 
-    height: 1000px; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-size: cover; 
-    color: white; 
-    font-family: 'Amatic SC', cursive;
-    }
-
-    .search-results {
-        color: white;
-        font-family: 'Roboto', sans-serif;
-        background-color: #536450;
-    }
-
-    .camp-summary {
-        text-align: center;
-        /* background-color: #536450; */
-        border-radius: 25px; 
-        color: white;
-        font-family: 'Roboto', sans-serif;
-        font-size: 25px; 
-        margin: 7px;
-        padding: 7px; 
-    }
-
-    #details {
-    font-family: 'Amatic SC', cursive;
-    font-style: italic;
-    }
-
-    a:link {
-        color: white; 
-        text-decoration: none;
-    }
-
-    a:visited {
-    color: white;
-    text-decoration: none;
-    }
-
-    a:hover {
-        color: #652F08;
-        text-decoration: none;
-    }
-
-
-    header {
-    font: white; 
-    text-decoration: none;
-    background-color: black;
-    }
-
-    a > h1 {
-    background-color: black;
-    height: 85%;
-    font-size: 50px;
-    font-weight: bold;
-    text-decoration: none;
-    text-align: right; 
-    }
-
-    main {
-    height: 90%;
-    width: 90%;
-    margin: auto;
-    font: white;
-    text-decoration: none;
-    }
-
-    footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%; 
-    }
-
-    h2 {
-    color: white;
-    }
-
-    h1 {
-    color: white; 
-    }
-
-    #logo-vector {
-    height: 50px;
-    width: 50px; 
-    }
-
-}
-
-@media only screen and (min-width: 481px) {
     /* Styles */
 
     body {
@@ -108,22 +11,28 @@
     font-family: 'Amatic SC', cursive;
     }
 
-    #search-results {
-    background-color: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), #324357;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    /* background-color: #536450; */
+    .search-results {
+        color: white;
+        border-radius: 25px;
+        font-family: 'Neucha', cursive;
+        background: rgba(0, 0, 0, 0.7);
     }
 
     .camp-summary {
-    text-align: center;
-    /* background-color: #536450; */
-    border-radius: 25px; 
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-size: 25px; 
-    margin: 7px;
-    padding: 7px; 
+        text-align: center;
+        background: rgba(83, 100, 80, 0.7);
+        border-radius: 25px; 
+        color: white;
+        font-size: 25px; 
+        margin: 7px;
+        padding: 7px; 
+    }
+
+    p {
+        /* border: 2px solid orange; */
+        color: white;
+        font-size: 25px; 
+        opacity: 100%;
     }
 
     #details {
@@ -131,6 +40,108 @@
     font-style: italic;
     }
 
+    a:link {
+        color: white; 
+        text-decoration: none;
+    }
+
+    a:visited {
+    color: white;
+    text-decoration: none;
+    }
+
+    a:hover {
+        color: #652F08;
+        text-decoration: none;
+    }
+
+
+    header {
+    font: white; 
+    text-decoration: none;
+    background-color: black;
+    }
+
+    a > h1 {
+    background-color: black;
+    height: 85%;
+    font-size: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: right; 
+    }
+
+    main {
+    height: 90%;
+    width: 90%;
+    margin: auto;
+    font: white;
+    text-decoration: none;
+    }
+
+    footer{
+        text-align: center;
+        position: fixed;
+    }
+
+    h2 {
+    color: white;
+    }
+
+    h1 {
+    color: white; 
+    float: right;
+    }
+
+    #logo-vector {
+    height: 50px;
+    width: 50px; 
+    float:left;
+    }
+
+
+@media only screen and (max-width: 767px){
+    /* Styles mobile */
+
+    body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/displayed/hero_image.jpg);
+    background-color: black; 
+    height: 1000px; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    color: white; 
+    font-family: 'Amatic SC', cursive;
+    }
+
+    .search-results {
+        color: white;
+        border-radius: 25px;
+        font-family: 'Neucha', cursive;
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    .camp-summary {
+        text-align: center;
+        background: rgba(83, 100, 80, 0.7);
+        border-radius: 25px; 
+        color: white;
+        font-size: 25px; 
+        margin: 7px;
+        padding: 7px; 
+    }
+
+    p {
+        /* border: 2px solid orange; */
+        color: white;
+        font-size: 25px; 
+        opacity: 100%;
+    }
+
+    #details {
+    font-family: 'Amatic SC', cursive;
+    font-style: italic;
+    }
 
     a:link {
         color: white; 
@@ -172,7 +183,7 @@
     }
 
     footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%; 
     }
@@ -182,12 +193,14 @@
     }
 
     h1 {
-    color: white; 
+    color: white;
+    float:right; 
     }
 
     #logo-vector {
     height: 50px;
     width: 50px; 
+    float:left;
     }
 
 }
