@@ -63,6 +63,34 @@
     font-family: 'Amatic SC', cursive;
     float:right;
   }
+
+  .top {
+    height: 60px;
+    background-color:rgba(0, 0, 0, 0.507);
+    /* border: 1px dashed black; */
+  }
+  h1{
+    color:white;
+    font-family: 'Amatic SC', cursive;
+    float:right;
+    font-size: 14px;
+  }
+  
+  #logo-vector{
+    height:50px;
+    float: right;
+  }
+  
+  a{
+    color:white;
+  }
+  
+  footer {
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.521);
+    font-size: 12px;
+  }
   
 }
 

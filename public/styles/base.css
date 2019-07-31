@@ -80,6 +80,7 @@
 
     footer{
         text-align: center;
+        position: fixed;
     }
 
     h2 {
@@ -88,11 +89,13 @@
 
     h1 {
     color: white; 
+    float: right;
     }
 
     #logo-vector {
     height: 50px;
     width: 50px; 
+    float:left;
     }
 
 
@@ -178,7 +181,7 @@
     }
 
     footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%; 
     }
@@ -188,12 +191,14 @@
     }
 
     h1 {
-    color: white; 
+    color: white;
+    float:right; 
     }
 
     #logo-vector {
     height: 50px;
     width: 50px; 
+    float:left;
     }
 
 }
