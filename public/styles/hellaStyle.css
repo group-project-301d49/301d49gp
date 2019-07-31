@@ -57,6 +57,12 @@
     padding: 16px 32px;
     position: relative;
   }
+
+  h1{
+    color:white;
+    font-family: 'Amatic SC', cursive;
+    float:right;
+  }
   
 }
 
@@ -80,6 +86,7 @@
   text-align: center;
   /* border:1px solid white; */
   height:310px;
+  /* top:300px; */
 }
 
 .image {
@@ -120,4 +127,34 @@
   position: relative;
   
 }
+
+.top {
+  height: 60px;
+  background-color:rgba(0, 0, 0, 0.507);
+  /* border: 1px dashed black; */
+}
+h1{
+  color:white;
+  font-family: 'Amatic SC', cursive;
+  float:right;
+  font-size: 14px;
+}
+
+#logo-vector{
+  height:50px;
+  float: right;
+}
+
+a{
+  color:white;
+}
+
+footer {
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.521);
+  font-size: 12px;
+}
+
+
 }
