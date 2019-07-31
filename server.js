@@ -42,15 +42,48 @@ app.listen(PORT, () => console.log('Listening on port:', PORT));
 // #region ---------- ROUTES ----------
 
 // API Routes
-app.get('/', (request, response) => {
-  response.render('index');
-});
+app.get('/', (request, response) => response.render('index'));
 app.get('/test', testFunction);
 app.post('/search/:query', getSearch);
+app.get('/campground/:query', getCampground);
 
 // #endregion ROUTES
 
 // #region ---------- ROUTE HANDLERS ----------
+
+
+async function getCampground(req, res) {
+  const query = JSON.parse(req.params.query);
+  // let URL = `https://www.reserveamerica.com/campgroundDetails.do?contractCode=${query.contractID}&parkId=${query.facilityID}&api_key=${process.env.CAMPGROUND_API_KEY}&xml=true`
+  let URL = `https://www.reserveamerica.com/campgroundDetails.do?contractCode=KOAI&parkId=730514&api_key=6h5g9gppzyn2rmffsvvwsj8f&xml=true`
+
+  console.log('ZEBRA', URL, 'ZEBRA END')
+  try {
+    // make our API call
+    const xmlResults = await superagent.get(URL);
+
+    // console.log('ZEBRA', Object.keys(xmlResults.req), 'ZEBRA END')
+    console.log('ZEBRA', xmlResults, 'ZEBRA END')
+
+    // parse XML string to JS object
+    // const result = await XMLconverter.xml2js(xmlResults.req.res.text);
+    // console.log('ZEBRA', Object.keys(result), 'ZEBRA END')
+
+    //  // dig into the returned JS object
+    //  const campArr = result.elements[0].elements.slice(0, 10);
+
+    //  // construct an array of campground summaries
+    //  const constructedCamps = campArr.map(camp => {
+    //    return new CampgroundSummary(camp.attributes);
+    //  })
+    //  // console.log(constructedCamps);
+
+    // console.log('ZEBRA', result, 'ZEBRA END')
+
+  } catch (e) {
+    console.log('getSearch() ERROR: ', e, 'END getSearch() ERROR: ');
+  }
+}
 
 
 async function getSearch(req, res) {
@@ -94,7 +127,7 @@ async function getSearch(req, res) {
 
     // console.log(lat, long);
     const forcastStr = `${lat[0]}d${lat[1]}n${long[0]}d${long[1]}/${parsedCityName}/`;
-    console.log(forcastStr);
+    console.log('banana', forcastStr, 'banana');
 
     res.render('search/search', { camps: constructedCamps, forcastStr: forcastStr, cityName: locationResults.cityName });
 
@@ -117,7 +150,7 @@ async function getLocationData(query) {
     // console.log(result.body.results[0].geometry.location);
     // console.log(result.body.results[0].address_components[0].long_name.replace(/\s+/g, '-').toLowerCase());
     const latLong = result.body.results[0].geometry.location;
-    const cityName = result.body.results[0].address_components[0].long_name;
+    const cityName = result.body.results[0].address_components.filter(e => e.types.includes('locality'))[0].long_name;
     return { latLong, cityName };
 
   } catch (e) {
@@ -132,6 +165,7 @@ async function getLocationData(query) {
 
 function CampgroundSummary(c) {
   this.availabilityStatus = c.availabilityStatus ? (c.availabilityStatus === 'Y' ? 'Available' : 'Unavailable') : 'API unknown';
+  this.contractID = c.contractID || 'API unknown';
   this.facilityID = c.facilityID || 'API unknown';
   this.facilityName = c.facilityName || 'API unknown';
   this.faciltyPhoto = c.faciltyPhoto ? 'http://www.reserveamerica.com' + c.faciltyPhoto : 'API unknown';
