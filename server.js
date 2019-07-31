@@ -47,12 +47,13 @@ app.listen(PORT, () => console.log('Listening on port:', PORT));
 app.get('/', (request, response) => {
   response.render('index');
 });
-app.get('/aboutMe',(request, response) => {
-  response.render('aboutMe')});
+app.get('/aboutMe', (request, response) => {
+  response.render('aboutMe')
+});
 
 app.get('/test', testFunction);
 app.post('/search/:query', getSearch);
-app.get('/campground', getCampground);
+app.get('/campground/:facilityId/:contractId', getCampground);
 
 // #endregion ROUTES
 
@@ -60,14 +61,15 @@ app.get('/campground', getCampground);
 
 
 async function getCampground(req, res) {
+  console.log('FRUIT', req.params);
 
-  let contractCode = 'CO';
-  let parkId = 50032;
+  const contractID = req.params.contractId;
+  const facilityID = req.params.facilityId;
 
   try {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto(`https://www.reserveamerica.com/campgroundDetails.do?contractCode=${contractCode}&parkId=${parkId}&xml=true`, { waitUntil: 'networkidle2' });
+    await page.goto(`https://www.reserveamerica.com/campgroundDetails.do?contractCode=${contractID}&parkId=${facilityID}&xml=true`, { waitUntil: 'networkidle2' });
 
     let resultObj = [];
 
@@ -83,7 +85,9 @@ async function getCampground(req, res) {
     await browser.close();
 
     const camp = new Campground(resultObj);
-    console.log(camp);
+    console.log(camp.facilityName);
+    console.log('PINEAPPLE');
+    res.render('camp-detail', { camp: camp });
 
   } catch (e) {
     console.log('PUPPETEER', e, 'PUPPETEER END');
@@ -131,7 +135,6 @@ async function getSearch(req, res) {
 
     // console.log(lat, long);
     const forcastStr = `${lat[0]}d${lat[1]}n${long[0]}d${long[1]}/${parsedCityName}/`;
-    console.log('banana', forcastStr, 'banana');
 
     res.render('search/search', { camps: constructedCamps, forcastStr: forcastStr, cityName: locationResults.cityName });
 
@@ -188,18 +191,18 @@ function CampgroundSummary(c) {
 
 
 function Campground(c) {
-  this.descripton = c.filter(e => e.attr === 'description')[0].value;
-  this.reservationURL = c.filter(e => e.attr === 'fullReservationUrl')[0].value;
-  this.drivingDirections = c.filter(e => e.attr === 'drivingDirection')[0].value;
-  this.facilityName = c.filter(e => e.attr === 'facility')[0].value;
-  this.latitude = c.filter(e => e.attr === 'latitude')[0].value;
-  this.longitude = c.filter(e => e.attr === 'longitude')[0].value;
-  this.phoneNumber = c.filter(e => e.attr === 'number')[0].value;
-  this.city = c.filter(e => e.attr === 'city')[0].value;
-  this.streetAddress = c.filter(e => e.attr === 'streetAddress')[0].value;
-  this.zip = c.filter(e => e.attr === 'zip')[0].value;
-  this.photos = c.filter(e => e.attr === 'realUrl')
-    .map(p => 'https://www.reserveamerica.com' + p.value);
+  this.descripton = c.filter(e => e.attr === 'description')[0] ? c.filter(e => e.attr === 'description')[0].value : 'undefined';
+  this.reservationURL = c.filter(e => e.attr === 'fullReservationUrl')[0] ? c.filter(e => e.attr === 'fullReservationUrl')[0].value : 'undefined';
+  this.drivingDirections = c.filter(e => e.attr === 'drivingDirection')[0] ? c.filter(e => e.attr === 'drivingDirection')[0].value : 'undefined';
+  this.facilityName = c.filter(e => e.attr === 'facility')[0] ? c.filter(e => e.attr === 'facility')[0].value : 'undefined';
+  this.latitude = c.filter(e => e.attr === 'latitude')[0] ? c.filter(e => e.attr === 'latitude')[0].value : 'undefined';
+  this.longitude = c.filter(e => e.attr === 'longitude')[0] ? c.filter(e => e.attr === 'longitude')[0].value : 'undefined';
+  this.phoneNumber = c.filter(e => e.attr === 'number')[0] ? c.filter(e => e.attr === 'number')[0].value : 'undefined';
+  this.city = c.filter(e => e.attr === 'city')[0] ? c.filter(e => e.attr === 'city')[0].value : 'undefined';
+  this.streetAddress = c.filter(e => e.attr === 'streetAddress')[0] ? c.filter(e => e.attr === 'streetAddress')[0].value : 'undefined';
+  this.zip = c.filter(e => e.attr === 'zip')[0] ? c.filter(e => e.attr === 'zip')[0].value : 'undefined';
+  this.photos = c.filter(e => e.attr === 'realUrl').length > 0 ? c.filter(e => e.attr === 'realUrl')
+    .map(p => 'https://www.reserveamerica.com' + p.value) : [];
 }
 
 
