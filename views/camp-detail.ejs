@@ -14,11 +14,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="/styles/reset.css">
-    <link rel='stylesheet' href="/styles/base.css">
-    <!-- <link rel="stylesheet" href="/public/styles/style.css"> -->
+    <link rel='stylesheet' href="/styles/modules.css">
+
 
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
 
     <title>Document</title>
     <!-- this is CSS for map -->
@@ -57,9 +57,9 @@
 
     <main>
 
-        <section>
+        <section id="site-details">
 
-            <h1><%= camp.facilityName  %></h1>
+            <h1 id="facility-name"><%- camp.facilityName  %></h1>
             <p><%= camp.descripton %></p>
             <p><%= camp.reservationURL %></p>
             <p>DRIVING DIRECTIONS<%= camp.drivingDirections %></p>
