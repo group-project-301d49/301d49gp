@@ -87,11 +87,12 @@
 
     h2 {
     color: rgb(209, 219, 14);
-    
+    text-shadow:5px 5px 6px red;
     }
 
     h1 {
     color: rgb(209, 219, 14);
+    text-shadow:5px 5px 6px red;
     /* float: right; */
     }
 
@@ -192,10 +193,12 @@
 
     h2 {
     color: rgb(209, 219, 14);
+    text-shadow:5px 5px 6px red;
     }
 
     h1 {
     color: rgb(209, 219, 14);
+    text-shadow:5px 5px 6px red;
     /* float:right;  */
     }
 
