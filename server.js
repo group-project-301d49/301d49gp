@@ -100,7 +100,7 @@ async function getSearch(req, res) {
   const locationResults = await getLocationData(req.body.searchInput);
 
 
-  let URL = `http://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=${locationResults.latLong.lat}&landmarkLong=${locationResults.latLong.lng}&xml=true&api_key=${process.env.CAMPGROUND_API_KEY}`;
+  let URL = `https://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=${locationResults.latLong.lat}&landmarkLong=${locationResults.latLong.lng}&xml=true&api_key=${process.env.CAMPGROUND_API_KEY}`;
 
   try {
     const xmlResults = await superagent.get(URL);
@@ -173,7 +173,7 @@ function CampgroundSummary(c) {
   this.contractID = c.contractID || 'API unknown';
   this.facilityID = c.facilityID || 'API unknown';
   this.facilityName = c.facilityName || 'API unknown';
-  this.faciltyPhoto = c.faciltyPhoto ? 'http://www.reserveamerica.com' + c.faciltyPhoto : 'API unknown';
+  this.faciltyPhoto = c.faciltyPhoto ? 'https://www.reserveamerica.com' + c.faciltyPhoto : 'API unknown';
   this.latitude = c.latitude || 'API unknown';
   this.longitude = c.longitude || 'API unknown';
   this.regionName = c.regionName || 'API unknown';
