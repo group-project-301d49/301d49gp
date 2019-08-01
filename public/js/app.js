@@ -21,8 +21,8 @@ function renderMap() {
   const campNameArr = $('.camp-name').map((i, el) => $(el).text());
 
 
-  const latCenter = latArr.reduce((acc, value) => acc += value) / latArr.length;
-  const lngCenter = lngArr.reduce((acc, value) => acc += value) / lngArr.length;
+  const latCenter = latArr.reduce((acc, value) => acc += value, 0) / latArr.length;
+  const lngCenter = lngArr.reduce((acc, value) => acc += value, 0) / lngArr.length;
 
   var mymap = L.map('mapid').setView([latCenter, lngCenter], 9);
   const attribution = '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors';
