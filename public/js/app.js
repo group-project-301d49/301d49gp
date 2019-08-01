@@ -19,7 +19,6 @@ function renderMap() {
   const lngArr = $('.camp-summary').map((i, el) => $(el).data('lng')).toArray();
   const imgArr = $('.thumbnail-image').map((i, el) => $(el).attr('src')).toArray();
   const campNameArr = $('.camp-name').map((i, el) => $(el).text());
-  console.log(campNameArr)
 
 
   const latCenter = latArr.reduce((acc, value) => acc += value) / latArr.length;
