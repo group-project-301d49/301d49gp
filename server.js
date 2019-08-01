@@ -131,7 +131,20 @@ async function getSearch(req, res) {
     // console.log(lat, long);
     const forcastStr = `${lat[0]}d${lat[1]}n${long[0]}d${long[1]}/${parsedCityName}/`;
 
-    res.render('search/search', { camps: constructedCamps, forcastStr: forcastStr, cityName: locationResults.cityName });
+    const iconArr = [
+      'assets/vector/logo_vector.png',
+      'assets/vector/vector-acorn.png',
+      'assets/vector/vector-axe.png',
+      'assets/vector/vector-backpack.png',
+      'assets/vector/vector-boots.png',
+      'assets/vector/vector-forest.png',
+      'assets/vector/vector-marshmallow.png',
+      'assets/vector/vector-mountain.png',
+      'assets/vector/vector-tent.png',
+      'assets/vector/vector-trunk.png'
+    ]
+
+    res.render('search/search', { camps: constructedCamps, forcastStr: forcastStr, cityName: locationResults.cityName, iconArr: iconArr });
 
   } catch (e) {
     console.log('getSearch() ERROR: ', e);
