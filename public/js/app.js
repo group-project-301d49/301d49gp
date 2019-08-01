@@ -2,25 +2,30 @@
 
 function init() {
 
-  $('.tb').keypress(function (e) {
-    if (e.which === 13) { //Enter key pressed
-      console.log(e.target.value);
+  // $('.tb').keypress(function (e) {
+  //   if (e.which === 13) { //Enter key pressed
+  //     console.log(e.target.value);
 
-      $.ajax({
-        url: `/search/${e.target.value}`,
-        type: 'POST',
-        success: renderSearch
-      })
-    }
-  });
+  //     $.ajax({
+  //       url: `/search/${e.target.value}`,
+  //       type: 'POST',
+  //       success: renderSearch
+  //     })
+  //   }
+  // });
+}
+
+function searchSubmit(e) {
+  if (e.key === 'Enter') {
+    alert('Enter was just pressed.');
+  }
+  return false;
 }
 
 function renderSearch(HTML) {
 
   $('main').empty().append(HTML);
-  // renderWeather(document, 'script', 'weatherwidget-io-js');
   renderMap();
-  $('.camp-details-link').on('click', getCampDetails);
 
 }
 
@@ -56,18 +61,10 @@ function renderMap() {
 }
 
 
-function getCampDetails() {
-  const facilityID = event.target.getAttribute('data-facilityID')
-  const contractID = event.target.getAttribute('data-contractID')
-  console.log(facilityID, contractID);
 
-  const params = JSON.stringify({ facilityID: facilityID, contractID: contractID });
-  console.log(params);
-
-  $.get(`/campground/${params}`, () => { window.location.href = `/campground/${params}` });
+function hideMap() {
+  $('#map').toggleClass('hide');
 }
-
-
 
 
 $(() => {

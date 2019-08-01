@@ -4,12 +4,87 @@
 <!-- VAR camps is an array of objects -->
 
 
-<section class='search'>
 
-    <%- include('./search-weather', {forcastStr:forcastStr, cityName:cityName})  %>
 
-    <%- include('./map-results', {})  %>
+<!DOCTYPE html>
+<html lang="en">
 
-    <%- include('./search-results', {camps:camps})  %>
+<head>
 
-</section>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel='stylesheet' href="/styles/base.css">
+    <link rel='stylesheet' href="/styles/menu.css">
+    <link rel='stylesheet' href="/styles/searchBar.css">
+    <link rel="stylesheet" href="/styles/map-weather-buttons.css">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/e55ec8a48b.js"></script>
+
+    <title>Document</title>
+    <!-- this is CSS for map -->
+
+    <script id="first-script"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- this is CSS for map - DO NOT REMOVE -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+
+    <!-- this is import script for map -->
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <header>
+
+
+        <%- include('../layout/header', {})  %>
+
+    </header>
+
+
+    <main>
+        <form action="/search" method="POST" id="search-input">
+            <input type="text" id='searchText' name="searchInput" placeholder="SEARCH" onkeypress="searchSubmit" />
+        </form>
+
+        <section class='search'>
+
+            <%- include('./search-weather', {forcastStr:forcastStr, cityName:cityName})  %>
+
+            <img onclick="hideMap()" class="show-map-click" src="assets/vector/vector-compass.png" alt="compass icon" />
+            <section id="map">
+                <!-- <section id="map" class="hide"> -->
+                <%- include('./map-results', {})  %>
+            </section>
+
+            <%- include('./search-results', {camps:camps})  %>
+
+        </section>
+    </main>
+
+    <footer>
+
+        <%- include('../layout/footer', {})  %>
+
+    </footer>
+
+
+</body>
+
+</html>

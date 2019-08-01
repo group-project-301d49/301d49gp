@@ -10,17 +10,14 @@
   <link rel="stylesheet" href="/styles/reset.css">
   <link rel='stylesheet' href="/styles/base.css">
   <link rel='stylesheet' href="/styles/menu.css">
-  <!-- <link rel="stylesheet" href="/public/styles/style.css"> -->
   <link rel='stylesheet' href="/styles/searchBar.css">
-  <!-- <link rel="stylesheet" href="/styles/style.css"> -->
-  <link rel='stylesheet' href="/styles/searchBar.css">
-  <!-- <link rel="stylesheet" href="/styles/style.css"> -->
-  <link rel='stylesheet' href="/styles/menu.css">
-  <!-- <link rel="stylesheet" href="/public/styles/style.css"> -->
+  <link rel="stylesheet" href="/styles/map-weather-buttons.css">
 
 
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/e55ec8a48b.js"></script>
 
   <title>Document</title>
   <!-- this is CSS for map -->
@@ -28,8 +25,6 @@
   <script id="first-script"></script>
 
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="/views/style.css">
 
   <!-- this is CSS for map - DO NOT REMOVE -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
@@ -56,16 +51,18 @@
 
 
   <main>
+    <form action="/search" method="POST" id="search-input">
+      <input type="text" id='searchText' name="searchInput" placeholder="SEARCH" onkeypress="searchSubmit" />
+    </form>
 
-    <div id="cover">
-        <div class="tb">
-          <div class="td"><input type="text" placeholder="Search" required></div>
-          <div class="td" id="s-cover">
-              <span></span>
-          </div>
+    <!-- <div id="cover">
+      <div class="tb">
+        <div class="td"><input type="text" placeholder="Search" required></div>
+        <div class="td" id="s-cover">
+          <span></span>
         </div>
-    </div>
-    
+      </div>
+    </div> -->
   </main>
 
   <footer>
