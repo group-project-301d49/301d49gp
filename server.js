@@ -115,7 +115,6 @@ async function getSearch(req, res) {
     const constructedCamps = campArr.map(camp => {
       return new CampgroundSummary(camp.attributes);
     })
-    // console.log(constructedCamps);
 
     // create url string to append to weather widget search // 47d61n122d33/seattle/
     const lat = Number.parseFloat(locationResults.latLong.lat)
@@ -151,8 +150,6 @@ async function getLocationData(query) {
     const location_URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${process.env.GEOCODE_API_KEY}`;
     const result = await superagent.get(location_URL);
 
-    // console.log(result.body.results[0].geometry.location);
-    // console.log(result.body.results[0].address_components[0].long_name.replace(/\s+/g, '-').toLowerCase());
     const latLong = result.body.results[0].geometry.location;
     const cityName = result.body.results[0].address_components.filter(e => e.types.includes('locality'))[0].long_name;
     console.log(result.body.results[0].address_components);
