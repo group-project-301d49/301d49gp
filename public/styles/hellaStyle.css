@@ -112,6 +112,7 @@
     left:0;
   }
 
+
   /* hamburger menu */
   :root {
     --primary-color: rgba(209, 53, 53, 0);
@@ -180,6 +181,11 @@
   #title{
     text-align: center;
     font-size: 25px;
+
+  h2{
+    font-family: 'Amatic SC', cursive;
+    font-size: 16px;
+
   }
   
 }
@@ -257,6 +263,10 @@ h1{
   /* float:right; */
   font-size: 22px;
   text-align: center;
+
+  float:right;
+  font-size: 16px;
+
 }
 
 #logo-vector{
@@ -288,6 +298,11 @@ header{
   left:0;
   top:0;
 }
+h2{
+  font-family: 'Amatic SC', cursive;
+  font-size: 16px;
+}
+
 
 
 /* hamburger style */
