@@ -181,13 +181,8 @@
   color:white;
   font-family: 'Amatic SC', cursive;
   float:right;
-<<<<<<< HEAD
   font-size: 16px;
 }
-=======
-  font-size: 12px;
-} */
->>>>>>> 1845240e25499876605f22fc9d6dd8ddb9afea01
 
 #logo-vector{
   height:40px;
@@ -217,13 +212,11 @@ header{
   left:0;
   top:0;
 }
-<<<<<<< HEAD
 h2{
   font-family: 'Amatic SC', cursive;
   font-size: 16px;
 }
 
-=======
 
 
 /* hamburger style */
@@ -303,5 +296,4 @@ h2 {
   font-size: 18px;
   float: right;
   }
->>>>>>> 1845240e25499876605f22fc9d6dd8ddb9afea01
 }
