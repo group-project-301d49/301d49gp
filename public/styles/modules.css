@@ -12,7 +12,7 @@
         }
     
         p {
-            border: 2px solid #652F08;;
+            border: 2px solid #803608;;
             color: white;
             font-size: 25px; 
             opacity: 100%;
@@ -90,6 +90,7 @@
             margin: 7px;
             padding: 7px; 
         }
+
     }
 
         /* Style for Desktop */
@@ -106,7 +107,7 @@
             }
         
             p {
-                /* border: 2px solid #652F08;; */
+                word-wrap: break-word;
                 color: white;
                 font-size: 25px; 
                 opacity: 100%;
@@ -129,7 +130,7 @@
             }
         
             a:hover {
-                color: #652F08;
+                color: #803608;
                 text-decoration: none;
             }
         
@@ -184,4 +185,5 @@
                 margin: 7px;
                 padding: 7px; 
             }
+  
         }
