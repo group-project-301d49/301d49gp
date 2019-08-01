@@ -3,7 +3,6 @@
     body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(../assets/displayed/hero_image.jpg);
     background-color: black; 
-    height: 100t0px; 
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
@@ -29,7 +28,6 @@
     }
 
     p {
-        /* border: 2px solid orange; */
         color: white;
         font-size: 25px; 
         opacity: 100%;
@@ -51,7 +49,7 @@
     }
 
     a:hover {
-        color: #652F08;
+        color: #803608;
         text-decoration: none;
     }
 
@@ -86,13 +84,13 @@
     }
 
     h2 {
-    color: rgb(209, 219, 14);
-    text-shadow:5px 5px 6px red;
+    color: white;
+    /* text-shadow:5px 5px 6px red; */
     }
 
     h1 {
-    color: rgb(209, 219, 14);
-    text-shadow:5px 5px 6px red;
+    color: white;
+    /* text-shadow:5px 5px 6px red; */
     /* float: right; */
     }
 
@@ -103,7 +101,20 @@
 
     button {
         font-family: 'Amatic SC', cursive;
+        font-weight: bold;
         font-size: 25px;
+        border: 3px solid #803608;
+        background: #803608;
+        border-radius: 25px; 
+    }
+
+    .thumbnail-image{
+        width: 50px;
+        height: 50px;
+    }
+
+    #mapid{
+        border-radius: 25px;
     }
 }
 
@@ -139,7 +150,6 @@
     }
 
     p {
-        /* border: 2px solid orange; */
         color: white;
         font-size: 25px; 
         opacity: 100%;
@@ -161,7 +171,7 @@
     }
 
     a:hover {
-        color: #652F08;
+        color: #803608;
         text-decoration: none;
     }
 
@@ -197,23 +207,38 @@
     }
 
     h2 {
-    color: rgb(209, 219, 14);
-    text-shadow:5px 5px 6px red;
+    color: white;
     }
 
     h1 {
-    color: rgb(209, 219, 14);
-    text-shadow:5px 5px 6px red;
-    /* float:right;  */
+    color: white;
     }
 
     #logo-vector {  
     height: 50px;
     width: 50px; 
-    position: center;
+    float: right;
     }
 
     #searchBarInSearch{
         position: relative;
+    }
+
+    button {
+        font-family: 'Amatic SC', cursive;
+        font-weight: bold;
+        font-size: 25px;
+        border: 3px solid #803608;
+        background: #803608;
+        border-radius: 25px; 
+    }
+
+    .thumbnail-image{
+        width: 50px;
+        height: 50px;
+    }
+
+    #mapid{
+        border-radius: 25px;
     }
 
