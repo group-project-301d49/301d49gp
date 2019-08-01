@@ -85,8 +85,7 @@ async function getCampground(req, res) {
     await browser.close();
 
     const camp = new Campground(resultObj);
-    console.log(camp.facilityName);
-    console.log('PINEAPPLE');
+
     res.render('camp-detail', { camp: camp });
 
   } catch (e) {
