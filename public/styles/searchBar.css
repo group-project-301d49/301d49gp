@@ -33,8 +33,8 @@ input, button
     top: 50%;
     left: 0;
     right: 0;
-    width: 100%;
-    padding: 35px;
+    width: 70%;
+    padding: 5px;
     margin: -83px auto 0 auto;
     background-color: #353535;
     border-radius: 20px;
@@ -95,7 +95,7 @@ input[type="text"]::placeholder
         top: 50%;
         left: 0;
         right: 0;
-        width: 100%;
+        width: 80%;
         padding: 35px;
         margin: -83px auto 0 auto;
         background-color: #353535;
