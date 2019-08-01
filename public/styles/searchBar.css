@@ -34,9 +34,9 @@ input, button
     left: 0;
     right: 0;
     width: 100%;
-    height: 50px;
+    height: 100px;
     padding: 5px;
-    margin: 30px 20px 0 auto;
+    margin: 150px 20px 50px auto;
     background-color: #353535;
     border-radius: 40px;
     box-shadow: 0 10px 40px #000000, 0 0 0 10px #ffffffeb;
@@ -48,7 +48,7 @@ input, button
 input[type="text"]
 {
     width: 100%;
-    height: 50px;
+    height: 90px;
     font-size: 60px;
     line-height: 1;
     text-align: center;
@@ -63,11 +63,11 @@ input[type="text"]::placeholder
 
 
 @media only screen and (min-width: 768px){
-    *
+    /* *
     {
         outline: none;
     }
-    
+     */
     
     .tb
     {
@@ -98,21 +98,22 @@ input[type="text"]::placeholder
         left: 0;
         right: 0;
         width: 60%;
-        padding: 35px;
-        margin: 30px auto 0 auto;
+        height: 100px;
+        padding: 5px;
+        margin: 200px 200px 50px auto;
         background-color: #353535;
-        border-radius: 20px;
+        border-radius: 40px;
         box-shadow: 0 10px 40px #000000, 0 0 0 10px #ffffffeb;
         transform: scale(0.6);
+        border:1px solid white;
     }
-    
     
     
     input[type="text"]
     {
         width: 100%;
-        height: 56px;
-        font-size: 70px;
+        height: 90px;
+        font-size: 60px;
         line-height: 1;
         text-align: center;
     }
