@@ -61,7 +61,6 @@ app.get('/campground/:facilityId/:contractId', getCampground);
 
 
 async function getCampground(req, res) {
-  console.log('FRUIT', req.params);
 
   const contractID = req.params.contractId;
   const facilityID = req.params.facilityId;
