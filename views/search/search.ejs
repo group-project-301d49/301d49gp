@@ -1,6 +1,7 @@
 <!-- VAR forcastStr is a string EXAMPLE: '47d61n122d33/seattle/' -->
 <!-- VAR forcastStr is injected EXAMPLE: '47d61n122d33/seattle/' -->
 <!-- VAR cityName is injected EXAMPLE: 'Los Angeles' -->
+<!-- VAR iconArr is injected EXAMPLE: 'assets/vector/vector-trunk.png' -->
 <!-- VAR camps is an array of objects -->
 
 
@@ -71,7 +72,7 @@
 
             <%- include('./map-results', {})  %>
 
-            <%- include('./search-results', {camps:camps})  %>
+            <%- include('./search-results', {camps:camps, iconArr:iconArr})  %>
 
         </section>
     </main>
