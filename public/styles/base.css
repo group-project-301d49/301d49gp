@@ -99,7 +99,12 @@
     #logo-vector {   
     height: 50px;
     width: 50px; 
-    } */
+    } 
+
+    button {
+        font-family: 'Amatic SC', cursive;
+        font-size: 25px;
+    }
 }
 
 
