@@ -29,25 +29,27 @@ input, button
 
 #cover
 {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 0;
     right: 0;
-    width: 70%;
+    width: 100%;
+    height: 100px;
     padding: 5px;
-    margin: -83px auto 0 auto;
+    margin: 150px 20px 50px auto;
     background-color: #353535;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px #000000, 0 0 0 20px #ffffffeb;
+    border-radius: 40px;
+    box-shadow: 0 10px 40px #000000, 0 0 0 10px #ffffffeb;
     transform: scale(0.6);
+    border:1px solid white;
 }
 
 
 input[type="text"]
 {
     width: 100%;
-    height: 96px;
-    font-size: 70px;
+    height: 90px;
+    font-size: 60px;
     line-height: 1;
     text-align: center;
 }
@@ -61,11 +63,11 @@ input[type="text"]::placeholder
 
 
 @media only screen and (min-width: 768px){
-    *
+    /* *
     {
         outline: none;
     }
-    
+     */
     
     .tb
     {
@@ -91,26 +93,27 @@ input[type="text"]::placeholder
     
     #cover
     {
-        position: absolute;
+        position: relative;
         top: 50%;
         left: 0;
         right: 0;
-        width: 80%;
-        padding: 35px;
-        margin: -83px auto 0 auto;
+        width: 60%;
+        height: 100px;
+        padding: 5px;
+        margin: 200px 200px 50px auto;
         background-color: #353535;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px #000000, 0 0 0 20px #ffffffeb;
+        border-radius: 40px;
+        box-shadow: 0 10px 40px #000000, 0 0 0 10px #ffffffeb;
         transform: scale(0.6);
+        border:1px solid white;
     }
-    
     
     
     input[type="text"]
     {
         width: 100%;
-        height: 96px;
-        font-size: 70px;
+        height: 90px;
+        font-size: 60px;
         line-height: 1;
         text-align: center;
     }
