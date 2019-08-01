@@ -116,6 +116,10 @@
     #mapid{
         border-radius: 25px;
     }
+
+    .weatherwidget-io{
+        border-radius: 25px;
+    }
 }
 
 
@@ -239,6 +243,10 @@
     }
 
     #mapid{
+        border-radius: 25px;
+    }
+
+    .weatherwidget-io{
         border-radius: 25px;
     }
 
