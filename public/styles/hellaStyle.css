@@ -181,6 +181,7 @@
   #title{
     text-align: center;
     font-size: 25px;
+  }
 
   h2{
     font-family: 'Amatic SC', cursive;
@@ -261,12 +262,9 @@ h1{
   color:white;
   font-family: 'Amatic SC', cursive;
   /* float:right; */
-  font-size: 22px;
+  font-size: 25px;
   text-align: center;
-
-  float:right;
-  font-size: 16px;
-
+  padding-left:50px;
 }
 
 #logo-vector{
@@ -311,12 +309,6 @@ h2{
   --overlay-color: rgba(29, 34, 39, 0.85);
   --menu-speed: 0.9s;
 }
- /* .container {
-  max-width: 960px;
-  margin: auto;
-  overflow: hidden;
-  padding: 0 3rem;
-} */
 
 .showcase {
   background-color: var(--primary-color);
