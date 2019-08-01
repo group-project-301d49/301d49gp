@@ -2,17 +2,24 @@
 
 function init() {
 
-  $('.tb').keypress(function (e) {
-    if (e.which === 13) { //Enter key pressed
-      console.log(e.target.value);
+  // $('.tb').keypress(function (e) {
+  //   if (e.which === 13) { //Enter key pressed
+  //     console.log(e.target.value);
 
-      $.ajax({
-        url: `/search/${e.target.value}`,
-        type: 'POST',
-        success: renderSearch
-      })
-    }
-  });
+  //     $.ajax({
+  //       url: `/search/${e.target.value}`,
+  //       type: 'POST',
+  //       success: renderSearch
+  //     })
+  //   }
+  // });
+}
+
+function searchSubmit(e) {
+  if (e.key === 'Enter') {
+    alert('Enter was just pressed.');
+  }
+  return false;
 }
 
 function renderSearch(HTML) {
