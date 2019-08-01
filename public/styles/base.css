@@ -100,7 +100,7 @@
     } 
 
     button {
-        font-family: 'Amatic SC', cursive;
+        font-family: ;'Amatic SC', cursive
         font-weight: bold;
         font-size: 25px;
         border: 3px solid #803608;
@@ -189,6 +189,7 @@
     text-decoration: none;
     background-color: black;
     text-align: center;
+    height:50px;
     }
 
     a > h1 {
