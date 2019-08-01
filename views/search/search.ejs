@@ -15,24 +15,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="/styles/reset.css">
-    <link rel='stylesheet' href="/styles/base.css">
-    <link rel='stylesheet' href="/styles/menu.css">
-    <link rel='stylesheet' href="/styles/searchBar.css">
-    <link rel="stylesheet" href="/styles/map-weather-buttons.css">
-
-
+    <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
-    <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/e55ec8a48b.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
-    <title>Document</title>
     <!-- this is CSS for map -->
 
     <script id="first-script"></script>
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
     <!-- this is CSS for map - DO NOT REMOVE -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
@@ -43,6 +35,13 @@
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
         integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
         crossorigin=""></script>
+
+    <!-- our app stylesheets -->
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel='stylesheet' href="/styles/base.css">
+    <link rel='stylesheet' href="/styles/menu.css">
+    <link rel='stylesheet' href="/styles/searchBar.css">
+    <link rel="stylesheet" href="/styles/map-weather-buttons.css">
 
     <title>Document</title>
 
@@ -65,13 +64,14 @@
 
         <section class='search'>
 
+            <img onclick="hideMap()" class="show-map-button" src="assets/displayed/vector-compass.png"
+                alt="compass icon" />
+            <img onclick="hideWeather()" class="show-weather-button" src="assets/displayed/seasons.png"
+                alt="weather icon" />
+
             <%- include('./search-weather', {forcastStr:forcastStr, cityName:cityName})  %>
 
-            <img onclick="hideMap()" class="show-map-click" src="assets/vector/vector-compass.png" alt="compass icon" />
-            <section id="map">
-                <!-- <section id="map" class="hide"> -->
-                <%- include('./map-results', {})  %>
-            </section>
+            <%- include('./map-results', {})  %>
 
             <%- include('./search-results', {camps:camps})  %>
 

@@ -1,0 +1,197 @@
+    /* Style for Mobile */
+    @media only screen and (max-width: 480px){
+        body {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/displayed/michael-guite-unsplash.jpg);
+        background-color: black; 
+        height: 1000px; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+        background-size: cover; 
+        color: white; 
+        font-family: 'Amatic SC', cursive;
+        }
+    
+        p {
+            border: 2px solid #652F08;;
+            color: white;
+            font-size: 25px; 
+            opacity: 100%;
+            font-family: 'Neucha', cursive;
+            padding: 5px; 
+            margin: 5px; 
+            border-radius: 25px;
+        }
+
+    
+        a:link {
+            color: white; 
+            text-decoration: none;
+        }
+    
+        a:visited {
+        color: white;
+        text-decoration: none;
+        }
+    
+        a:hover {
+            color: #652F08;
+            text-decoration: none;
+        }
+    
+    
+        header {
+        font: white; 
+        text-decoration: none;
+        background-color: black;
+        }
+    
+        a > h1 {
+        background-color: black;
+        height: 85%;
+        font-size: 50px;
+        font-weight: bold;
+        text-decoration: none;
+        text-align: right; 
+        }
+    
+        main {
+        height: 90%;
+        width: 90%;
+        margin: auto;
+        font: white;
+        text-decoration: none;
+        }
+    
+        footer{
+            text-align: center;
+            position: fixed;
+            /* border: solid 2px indigo; */
+        }
+    
+    
+        h1#facility-name {
+        color: white; 
+        /* border: 2px solid greenyellow; */
+        font-family: 'Amatic SC', cursive;
+        font-size: 40px;
+        font-weight: bold;
+        }
+    
+        #logo-vector {
+        height: 50px;
+        width: 50px; 
+        }
+
+        #site-details {
+            text-align: center;
+            background: rgba(83, 100, 80, 0.7);
+            border-radius: 25px; 
+            color: white;
+            font-size: 25px; 
+            margin: 7px;
+            padding: 7px; 
+        }
+    }
+
+        /* Style for Mobile */
+        @media only screen and (min-width: 481px){
+            body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/displayed/michael-guite-unsplash.jpg);
+            background-color: black; 
+            height: 1000px; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-size: cover; 
+            color: white; 
+            font-family: 'Amatic SC', cursive;
+            }
+        
+            p {
+                border: 2px solid #652F08;;
+                color: white;
+                font-size: 25px; 
+                opacity: 100%;
+                font-family: 'Neucha', cursive;
+                padding: 5px; 
+                margin: 5px; 
+                border-radius: 25px;
+            }
+    
+        
+            a:link {
+                color: white; 
+                text-decoration: none;
+            }
+        
+            a:visited {
+            color: white;
+            text-decoration: none;
+            }
+        
+            a:hover {
+                color: #652F08;
+                text-decoration: none;
+            }
+        
+        
+            header {
+            font: white; 
+            text-decoration: none;
+            background-color: black;
+            }
+        
+            a > h1 {
+            background-color: black;
+            height: 85%;
+            font-size: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: right; 
+            }
+        
+            main {
+            height: 90%;
+            width: 90%;
+            margin: auto;
+            font: white;
+            text-decoration: none;
+            }
+        
+            footer{
+                text-align: center;
+                position: fixed;
+                /* border: solid 2px indigo; */
+            }
+        
+        
+            h1#facility-name {
+            color: white; 
+            /* border: 2px solid greenyellow; */
+            font-family: 'Amatic SC', cursive;
+            font-size: 40px;
+            font-weight: bold;
+            }
+        
+            #logo-vector {
+            height: 50px;
+            width: 50px; 
+            }
+    
+            #site-details {
+                text-align: center;
+                background: rgba(83, 100, 80, 0.7);
+                border-radius: 25px; 
+                color: white;
+                font-size: 25px; 
+                margin: 7px;
+                padding: 7px; 
+            }
+        }
+        
+        
+    
+        
+    
+    
+
+    

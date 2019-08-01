@@ -1,32 +1,15 @@
 'use strict'
 
 function init() {
-
-  // $('.tb').keypress(function (e) {
-  //   if (e.which === 13) { //Enter key pressed
-  //     console.log(e.target.value);
-
-  //     $.ajax({
-  //       url: `/search/${e.target.value}`,
-  //       type: 'POST',
-  //       success: renderSearch
-  //     })
-  //   }
-  // });
+  renderMap();
 }
+
 
 function searchSubmit(e) {
   if (e.key === 'Enter') {
     alert('Enter was just pressed.');
   }
   return false;
-}
-
-function renderSearch(HTML) {
-
-  $('main').empty().append(HTML);
-  renderMap();
-
 }
 
 function renderMap() {
@@ -57,13 +40,17 @@ function renderMap() {
   }
 
   // marker.bindPopup('1');
-
+  hideMap();
+  hideWeather()
 }
 
 
+function hideWeather() {
+  $('.search-weather').toggle();
+}
 
 function hideMap() {
-  $('#map').toggleClass('hide');
+  $('.map-results').toggle();
 }
 
 
