@@ -105,6 +105,10 @@
     top:0;
     left:0;
   }
+  h2{
+    font-family: 'Amatic SC', cursive;
+    font-size: 16px;
+  }
   
 }
 
@@ -177,8 +181,8 @@
   color:white;
   font-family: 'Amatic SC', cursive;
   float:right;
-  font-size: 12px;
-} */
+  font-size: 16px;
+}
 
 #logo-vector{
   height:40px;
@@ -208,6 +212,11 @@ header{
   left:0;
   top:0;
 }
+h2{
+  font-family: 'Amatic SC', cursive;
+  font-size: 16px;
+}
+
 
 
 /* hamburger style */
