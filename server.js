@@ -67,7 +67,7 @@ async function getCampground(req, res) {
   const facilityID = req.params.facilityId;
 
   try {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
     const page = await browser.newPage();
     await page.goto(`https://www.reserveamerica.com/campgroundDetails.do?contractCode=${contractID}&parkId=${facilityID}&xml=true`, { waitUntil: 'networkidle2' });
 
@@ -100,7 +100,7 @@ async function getSearch(req, res) {
   const locationResults = await getLocationData(req.body.searchInput);
 
 
-  let URL = `http://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=${locationResults.latLong.lat}&landmarkLong=${locationResults.latLong.lng}&xml=true&api_key=${process.env.CAMPGROUND_API_KEY}`;
+  let URL = `https://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=${locationResults.latLong.lat}&landmarkLong=${locationResults.latLong.lng}&xml=true&api_key=${process.env.CAMPGROUND_API_KEY}`;
 
   try {
     const xmlResults = await superagent.get(URL);
@@ -115,7 +115,6 @@ async function getSearch(req, res) {
     const constructedCamps = campArr.map(camp => {
       return new CampgroundSummary(camp.attributes);
     })
-    // console.log(constructedCamps);
 
     // create url string to append to weather widget search // 47d61n122d33/seattle/
     const lat = Number.parseFloat(locationResults.latLong.lat)
@@ -151,8 +150,6 @@ async function getLocationData(query) {
     const location_URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${process.env.GEOCODE_API_KEY}`;
     const result = await superagent.get(location_URL);
 
-    // console.log(result.body.results[0].geometry.location);
-    // console.log(result.body.results[0].address_components[0].long_name.replace(/\s+/g, '-').toLowerCase());
     const latLong = result.body.results[0].geometry.location;
     const cityName = result.body.results[0].address_components.filter(e => e.types.includes('locality'))[0].long_name;
     console.log(result.body.results[0].address_components);
@@ -173,7 +170,7 @@ function CampgroundSummary(c) {
   this.contractID = c.contractID || 'API unknown';
   this.facilityID = c.facilityID || 'API unknown';
   this.facilityName = c.facilityName || 'API unknown';
-  this.faciltyPhoto = c.faciltyPhoto ? 'http://www.reserveamerica.com' + c.faciltyPhoto : 'API unknown';
+  this.faciltyPhoto = c.faciltyPhoto ? 'https://www.reserveamerica.com' + c.faciltyPhoto : 'API unknown';
   this.latitude = c.latitude || 'API unknown';
   this.longitude = c.longitude || 'API unknown';
   this.regionName = c.regionName || 'API unknown';
