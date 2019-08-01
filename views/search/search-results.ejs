@@ -25,7 +25,7 @@
   <section class='camp-summary' data-lat='<%- camp.latitude %>' data-lng='<%- camp.longitude %>'>
 
     <p class="camp-results"><%= camp.availabilityStatus %></p>
-    <p class="camp-results"><%- camp.facilityName %></p>
+    <p class="camp-name" class="camp-results"><%- camp.facilityName %></p>
     <img class="thumbnail-image" src="<%= iconArr[i]  %>" alt="<%= camp.facilityName %>">
 
     <form action="/campground/<%= camp.facilityID %>/<%= camp.contractID %>" method="GET" id="details"

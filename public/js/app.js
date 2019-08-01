@@ -18,6 +18,9 @@ function renderMap() {
   const latArr = $('.camp-summary').map((i, el) => $(el).data('lat')).toArray();
   const lngArr = $('.camp-summary').map((i, el) => $(el).data('lng')).toArray();
   const imgArr = $('.thumbnail-image').map((i, el) => $(el).attr('src')).toArray();
+  const campNameArr = $('.camp-name').map((i, el) => $(el).text());
+  console.log(campNameArr)
+
 
   const latCenter = latArr.reduce((acc, value) => acc += value) / latArr.length;
   const lngCenter = lngArr.reduce((acc, value) => acc += value) / lngArr.length;
@@ -33,15 +36,15 @@ function renderMap() {
     let myIcon = L.icon({
       iconUrl: imgArr[i].replace('.png', '_black.png'),
       iconSize: [30, 30],
-      iconAnchor: [25, 25],
-      popupAnchor: [0, -20]
+      iconAnchor: [15, 15],
+      popupAnchor: [0, -18]
     });
-    L.marker([latArr[i], lngArr[i]], { icon: myIcon }).addTo(mymap);
+    const marker = L.marker([latArr[i], lngArr[i]], { icon: myIcon }).addTo(mymap);
+    marker.bindPopup(campNameArr[i]);
   }
 
-  // marker.bindPopup('1');
   hideMap();
-  hideWeather()
+  hideWeather();
 }
 
 
