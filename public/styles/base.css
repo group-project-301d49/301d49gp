@@ -202,3 +202,7 @@
     float:left;
     }
 
+    #searchBarInSearch{
+        position: relative;
+    }
+
