@@ -68,6 +68,11 @@ function getCampDetails() {
 }
 
 
+function hideMap() {
+  $('#map').toggleClass('hide');
+}
+
+
 
 
 $(() => {

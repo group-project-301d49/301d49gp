@@ -8,7 +8,11 @@
 
     <%- include('./search-weather', {forcastStr:forcastStr, cityName:cityName})  %>
 
+    <img onclick="hideMap()" class="show-map-click" src="assets/vector/vector-compass.png" alt="compass icon"/>
+    <!-- <button onclick="hideMap()" class="show-map-click"><i class="fas fa-map-marked-alt"></i></button>     -->
+    <section id="map" class="hide">
     <%- include('./map-results', {})  %>
+    </section>
 
     <%- include('./search-results', {camps:camps})  %>
 
