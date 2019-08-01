@@ -52,7 +52,7 @@ app.get('/aboutMe', (request, response) => {
 });
 
 app.get('/test', testFunction);
-app.post('/search/:query', getSearch);
+app.post('/search', getSearch);
 app.get('/campground/:facilityId/:contractId', getCampground);
 
 // #endregion ROUTES
@@ -85,8 +85,7 @@ async function getCampground(req, res) {
     await browser.close();
 
     const camp = new Campground(resultObj);
-    console.log(camp.facilityName);
-    console.log('PINEAPPLE');
+
     res.render('camp-detail', { camp: camp });
 
   } catch (e) {
@@ -97,10 +96,8 @@ async function getCampground(req, res) {
 
 async function getSearch(req, res) {
 
-  let query = req.params.query;
-
   // get latitude and longitude and city name for queried location
-  const locationResults = await getLocationData(query);
+  const locationResults = await getLocationData(req.body.searchInput);
 
 
   let URL = `http://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=${locationResults.latLong.lat}&landmarkLong=${locationResults.latLong.lng}&xml=true&api_key=${process.env.CAMPGROUND_API_KEY}`;
