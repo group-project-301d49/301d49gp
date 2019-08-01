@@ -16,15 +16,17 @@
   sitesWithWaterfront: 'API unknown',
   statestate: 'KY'
 }] -->
+<!-- VAR iconArr is injected EXAMPLE: 'assets/vector/vector-trunk.png' -->
+
 <section class='search-results'>
 
 
-  <% camps.forEach(camp => { %>
+  <% camps.forEach((camp, i) => { %>
   <section class='camp-summary' data-lat='<%- camp.latitude %>' data-lng='<%- camp.longitude %>'>
 
     <p class="camp-results"><%= camp.availabilityStatus %></p>
-    <p class="camp-results"><%- camp.facilityName %></p>
-    <img id="thumbnail-image" src="<%= camp.faciltyPhoto  %>" alt="<%= camp.facilityName %>">
+    <p class="camp-name" class="camp-results"><%- camp.facilityName %></p>
+    <img class="thumbnail-image" src="<%= iconArr[i]  %>" alt="<%= camp.facilityName %>">
 
     <form action="/campground/<%= camp.facilityID %>/<%= camp.contractID %>" method="GET" id="details"
       class="camp-details-link">

@@ -1,9 +1,9 @@
     /* Styles */
     @media only screen and (min-width: 768px){
     body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/displayed/hero_image.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(../assets/displayed/hero_image.jpg);
     background-color: black; 
-    height: 1000px; 
+    height: 100t0px; 
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
@@ -22,7 +22,7 @@
         text-align: center;
         background: rgba(83, 100, 80, 0.7);
         border-radius: 25px; 
-        color: white;
+        color: #ffffff;
         font-size: 25px; 
         margin: 7px;
         padding: 7px; 
@@ -60,6 +60,7 @@
     font: white; 
     text-decoration: none;
     background-color: black;
+    text-align: center;
     }
 
     a > h1 {
@@ -68,7 +69,7 @@
     font-size: 50px;
     font-weight: bold;
     text-decoration: none;
-    text-align: right; 
+    text-align: center; 
     }
 
     main {
@@ -85,25 +86,27 @@
     }
 
     h2 {
-    color: white;
+    color: rgb(209, 219, 14);
+    text-shadow:5px 5px 6px red;
     }
 
     h1 {
-    color: white; 
+    color: rgb(209, 219, 14);
+    text-shadow:5px 5px 6px red;
     /* float: right; */
     }
 
-    #logo-vector {
+    #logo-vector {   
     height: 50px;
     width: 50px; 
-    }
+    } */
 }
 
 
     /* Styles mobile */
 
     body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/displayed/hero_image.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(../assets/displayed/hero_image.jpg);
     background-color: black; 
     height: 1000px; 
     background-position: center; 
@@ -159,9 +162,10 @@
 
 
     header {
-    font: white; 
+    font:white; 
     text-decoration: none;
     background-color: black;
+    text-align: center;
     }
 
     a > h1 {
@@ -170,7 +174,7 @@
     font-size: 50px;
     font-weight: bold;
     text-decoration: none;
-    text-align: right; 
+    text-align: center; 
     }
 
     main {
@@ -188,17 +192,23 @@
     }
 
     h2 {
-    color: white;
+    color: rgb(209, 219, 14);
+    text-shadow:5px 5px 6px red;
     }
 
     h1 {
-    color: white;
+    color: rgb(209, 219, 14);
+    text-shadow:5px 5px 6px red;
     /* float:right;  */
     }
 
-    #logo-vector {
+    #logo-vector {  
     height: 50px;
     width: 50px; 
-    float:left;
+    position: center;
+    }
+
+    #searchBarInSearch{
+        position: relative;
     }
 
