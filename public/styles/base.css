@@ -210,7 +210,7 @@
     #logo-vector {  
     height: 50px;
     width: 50px; 
-    position: center;
+    float: right;
     }
 
     #searchBarInSearch{
