@@ -65,18 +65,21 @@
   h1{
     color:white;
     font-family: 'Amatic SC', cursive;
-    float:right;
+    /* float:right; */
   }
 
   .top {
     height: 60px;
-    background-color:rgba(0, 0, 0, 0.507);
-    /* border: 1px dashed black; */
+    background-color:rgb(0, 0, 0);
+    top:0;
+    left:0;
+    position: absolute;
+    width:100%;
   }
   h1{
     color:white;
     font-family: 'Amatic SC', cursive;
-    float:right;
+    /* float:right; */
     font-size: 14px;
   }
   
@@ -173,6 +176,11 @@
   .btn:hover {
     opacity: 0.9;
   }
+
+  #title{
+    text-align: center;
+    font-size: 25px;
+  }
   
 }
 
@@ -229,7 +237,7 @@
 }
 
 .text {
-  background-color: rgba(56, 56, 56, 0.493);
+  background-color: rgba(20, 20, 20, 0.767);
   color: white;
   font-size: 25px;
   padding: 16px 32px;
@@ -239,14 +247,16 @@
 
 .top {
   height: 50px;
-  background-color:rgba(0, 0, 0, 0.507);
-  /* border: 1px dashed black; */
+  background-color:rgb(0, 0, 0);
+  position: absolute;
+  width:100%;
 }
 h1{
   color:white;
   font-family: 'Amatic SC', cursive;
-  float:right;
-  font-size: 12px;
+  /* float:right; */
+  font-size: 22px;
+  text-align: center;
 }
 
 #logo-vector{
@@ -343,6 +353,15 @@ header{
 
 .btn:hover {
   opacity: 0.9;
+}
+.hamburgerMenu {
+  max-width: 960px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 3rem;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 }
