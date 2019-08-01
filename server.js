@@ -26,9 +26,9 @@ app.use(express.static('public'));
 
 // Database Setup: if you've got a good DATABASE_URL
 if (process.env.DATABASE_URL) {
-  const client = new pg.Client(process.env.DATABASE_URL);
+  var client = new pg.Client(process.env.DATABASE_URL);
   client.connect();
-  client.on('error', err => console.error(err));
+  client.on('error', err => console.error('BANANA ERROR', err));
 }
 
 // Set the view engine for server-side templating
@@ -93,27 +93,42 @@ async function getCampground(req, res) {
 }
 
 
+
+
 async function getSearch(req, res) {
-
-  // get latitude and longitude and city name for queried location
-  const locationResults = await getLocationData(req.body.searchInput);
-
-
-  let URL = `https://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=${locationResults.latLong.lat}&landmarkLong=${locationResults.latLong.lng}&xml=true&api_key=${process.env.CAMPGROUND_API_KEY}`;
-
+  let constructedCamps = [];
   try {
-    const xmlResults = await superagent.get(URL);
+    // get latitude and longitude and city name for queried location
+    const locationResults = await getLocationData(req.body.searchInput);
 
-    // parse XML string to JS object
-    const result = XMLconverter.xml2js(xmlResults.req.res.text);
+    // get search query ie(locationResults.cityName) is already in DB
+    const campSumResults = await CampgroundSummary.getFromDB(locationResults.cityName);
 
-    // dig into the returned JS object
-    const campArr = result.elements[0].elements.slice(0, 10);
+    // if something came back from DB use it if not call API
+    if (campSumResults.rows.length) {
 
-    // construct an array of campground summaries
-    const constructedCamps = campArr.map(camp => {
-      return new CampgroundSummary(camp.attributes);
-    })
+      constructedCamps = campSumResults.rows;
+
+    } else {
+
+      let URL = `https://api.amp.active.com/camping/campgrounds?landmarkName=true&landmarkLat=${locationResults.latLong.lat}&landmarkLong=${locationResults.latLong.lng}&xml=true&api_key=${process.env.CAMPGROUND_API_KEY}`;
+
+
+      const xmlResults = await superagent.get(URL);
+
+      // parse XML string to JS object
+      const result = XMLconverter.xml2js(xmlResults.req.res.text);
+
+      // dig into the returned JS object
+      const campArr = result.elements[0].elements.slice(0, 10);
+
+      // construct an array of campground summaries
+      constructedCamps = campArr.map(camp => {
+        const newCamp = new CampgroundSummary(camp.attributes, locationResults.cityName);
+        newCamp.saveToDB();
+        return newCamp;
+      })
+    }
 
     // create url string to append to weather widget search // 47d61n122d33/seattle/
     const lat = Number.parseFloat(locationResults.latLong.lat)
@@ -164,7 +179,7 @@ async function getLocationData(query) {
 
     const latLong = result.body.results[0].geometry.location;
     const cityName = result.body.results[0].address_components.filter(e => e.types.includes('locality'))[0].long_name;
-    console.log(result.body.results[0].address_components);
+    // console.log(result.body.results[0].address_components);
     return { latLong, cityName };
 
   } catch (e) {
@@ -177,7 +192,8 @@ async function getLocationData(query) {
 
 // #region ---------- CONSTRUCTORS ----------
 
-function CampgroundSummary(c) {
+function CampgroundSummary(c, originalQuery) {
+  this.originalQuery = originalQuery.toLowerCase();
   this.availabilityStatus = c.availabilityStatus ? (c.availabilityStatus === 'Y' ? 'Available' : 'Unavailable') : 'API unknown';
   this.contractID = c.contractID || 'API unknown';
   this.facilityID = c.facilityID || 'API unknown';
@@ -194,6 +210,29 @@ function CampgroundSummary(c) {
   this.sitesWithWaterHookup = c.sitesWithWaterHookup || 'API unknown';
   this.sitesWithWaterfront = c.sitesWithWaterfront || 'API unknown';
   this.statestate = c.state || 'API unknown';
+}
+
+CampgroundSummary.prototype.saveToDB = function () {
+  try {
+    // console.log('Saving to database this: ', this);
+
+    const SQL = 'INSERT INTO campground (originalQuery, availabilityStatus, contractID, facilityID, facilityName, faciltyPhoto, latitude, longitude, regionName, reservationChannel, shortName, sitesWithAmps, sitesWithPetsAllowed, sitesWithSewerHookup, sitesWithWaterHookup, sitesWithWaterfront, statestate) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17);';
+    const values = [this.originalQuery, this.availabilityStatus, this.contractID, this.facilityID, this.facilityName, this.faciltyPhoto, this.latitude, this.longitude, this.regionName, this.reservationChannel, this.shortName, this.sitesWithAmps, this.sitesWithPetsAllowed, this.sitesWithSewerHookup, this.sitesWithWaterHookup, this.sitesWithWaterfront, this.statestate];
+    return client.query(SQL, values);
+  } catch (e) {
+    console.log('DB-SAVE ERROR: ', e);
+  }
+}
+
+CampgroundSummary.getFromDB = function (originalQuery) {
+  try {
+
+    console.log('Getting from database originalquery: ', originalQuery.toLowerCase());
+    const SQL = 'SELECT * FROM campground where originalQuery = $1;';
+    return client.query(SQL, [originalQuery.toLowerCase()]);
+  } catch (e) {
+    console.log('DB-GET ERROR: ', e);
+  }
 }
 
 
