@@ -65,13 +65,12 @@
             <p>DRIVING DIRECTIONS<%= camp.drivingDirections %></p>
             <p>PHONE#: <%= camp.phoneNumber %></p>
             <p>ADDRESS: <%= camp.streetAddress %>, <%= camp.city %>, <%= camp.zip %></p>
-            <p>Photos of the <%= camp.facilityName  %></p>
-            <% camp.photos.forEach(e=>{ %>
+            <p>Photos of the <%= camp.facilityName  %> </p>
+            <p><% camp.photos.forEach(e=>{ %>
             <img src="<%= e %>" />
-            <% }) %>
+            <% }) %> </p>
 
             <p>LAT/LONG: <%= camp.latitude %>/<%= camp.longitude %></p>
-            <p></p>
 
         </section>
 
