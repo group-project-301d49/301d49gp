@@ -63,15 +63,15 @@
         <section id="site-details">
 
             <h1 id="facility-name"><%- camp.facilityName  %></h1>
-            <p><%= camp.descripton %></p>
+            <p><%- camp.descripton %></p>
             <p><%= camp.reservationURL %></p>
             <p>DRIVING DIRECTIONS<%= camp.drivingDirections %></p>
             <p>PHONE#: <%= camp.phoneNumber %></p>
             <p>ADDRESS: <%= camp.streetAddress %>, <%= camp.city %>, <%= camp.zip %></p>
             <p>Photos of the <%= camp.facilityName  %> </p>
             <p><% camp.photos.forEach(e=>{ %>
-            <img src="<%= e %>" />
-            <% }) %> </p>
+                <img src="<%= e %>" />
+                <% }) %> </p>
 
             <p>LAT/LONG: <%= camp.latitude %>/<%= camp.longitude %></p>
 
