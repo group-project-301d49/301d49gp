@@ -106,8 +106,8 @@ async function getSearch(req, res) {
 
     // if something came back from DB use it if not call API
     if (campSumResults.rows.length) {
-
-      constructedCamps = campSumResults.rows;
+      const tempArr = constructedCamps.concat(campSumResults.rows);
+      constructedCamps = tempArr;
 
     } else {
 
@@ -158,7 +158,7 @@ async function getSearch(req, res) {
       'assets/vector/vector-tent.png',
       'assets/vector/vector-trunk.png'
     ]
-
+    console.log('these are our camps', constructedCamps);
     res.render('search/search', { camps: constructedCamps, forcastStr: forcastStr, cityName: locationResults.cityName, iconArr: iconArr });
 
   } catch (e) {
@@ -193,22 +193,22 @@ async function getLocationData(query) {
 // #region ---------- CONSTRUCTORS ----------
 
 function CampgroundSummary(c, originalQuery) {
-  this.originalQuery = originalQuery.toLowerCase();
-  this.availabilityStatus = c.availabilityStatus ? (c.availabilityStatus === 'Y' ? 'Available' : 'Unavailable') : 'API unknown';
-  this.contractID = c.contractID || 'API unknown';
-  this.facilityID = c.facilityID || 'API unknown';
-  this.facilityName = c.facilityName || 'API unknown';
-  this.faciltyPhoto = c.faciltyPhoto ? 'https://www.reserveamerica.com' + c.faciltyPhoto : 'API unknown';
+  this.originalquery = originalQuery.toLowerCase();
+  this.availabilitystatus = c.availabilityStatus ? (c.availabilityStatus === 'Y' ? 'Available' : 'Unavailable') : 'API unknown';
+  this.contractid = c.contractID || 'API unknown';
+  this.facilityid = c.facilityID || 'API unknown';
+  this.facilityname = c.facilityName || 'API unknown';
+  this.faciltyphoto = c.faciltyPhoto ? 'https://www.reserveamerica.com' + c.faciltyPhoto : 'API unknown';
   this.latitude = c.latitude || 'API unknown';
   this.longitude = c.longitude || 'API unknown';
-  this.regionName = c.regionName || 'API unknown';
-  this.reservationChannel = c.reservationChannel || 'API unknown';
-  this.shortName = c.shortName || 'API unknown';
-  this.sitesWithAmps = c.sitesWithAmps || 'API unknown';
-  this.sitesWithPetsAllowed = c.sitesWithPetsAllowed || 'API unknown';
-  this.sitesWithSewerHookup = c.sitesWithSewerHookup || 'API unknown';
-  this.sitesWithWaterHookup = c.sitesWithWaterHookup || 'API unknown';
-  this.sitesWithWaterfront = c.sitesWithWaterfront || 'API unknown';
+  this.regionname = c.regionName || 'API unknown';
+  this.reservationchannel = c.reservationChannel || 'API unknown';
+  this.shortname = c.shortName || 'API unknown';
+  this.siteswithamps = c.sitesWithAmps || 'API unknown';
+  this.siteswithpetsallowed = c.sitesWithPetsAllowed || 'API unknown';
+  this.siteswithsewerhookup = c.sitesWithSewerHookup || 'API unknown';
+  this.siteswithwaterhookup = c.sitesWithWaterHookup || 'API unknown';
+  this.siteswithwaterfront = c.sitesWithWaterfront || 'API unknown';
   this.statestate = c.state || 'API unknown';
 }
 

@@ -20,3 +20,4 @@ CREATE TABLE campground (
   sitesWithWaterfront VARCHAR(255),
   statestate VARCHAR(255)
 );
+
