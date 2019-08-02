@@ -30,11 +30,11 @@
   <% camps.forEach((camp, i) => { %>
   <section class='camp-summary' data-lat='<%- camp.latitude %>' data-lng='<%- camp.longitude %>'>
 
-    <p class="camp-results"><%= camp.availabilityStatus %></p>
-    <p class="camp-name" class="camp-results"><%- camp.facilityName %></p>
+    <p class="camp-availability" class="camp-results"><%= camp.availabilitystatus %></p>
+    <p class="camp-name" class="camp-results"><%- camp.facilityname %></p>
     <img class="thumbnail-image" src="<%= iconArr[i]  %>" alt="<%= camp.facilityName %>">
 
-    <form action="/campground/<%= camp.facilityID %>/<%= camp.contractID %>" method="GET" id="details"
+    <form action="/campground/<%= camp.facilityid %>/<%= camp.contractid %>" method="GET" id="details"
       class="camp-details-link">
       <button type='submit'>See Details</button>
     </form>
